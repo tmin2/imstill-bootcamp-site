@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>나는아직 런칭 부트캠프 | 공식 사이트</title>
+  <meta name="description" content="AI 기반 5주 완성 런칭 부트캠프 - 나는아직 공식 웹사이트">
+  <meta property="og:title" content="나는아직 런칭 부트캠프">
+  <meta property="og:description" content="AI 기반 5주 완성 런칭 부트캠프 - 나는아직 공식 웹사이트">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <style>
+    /* Standalone Page Base Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      background: #F7F7F7;
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+<body>
+<style>
+/* 원본 나는아직 런칭 부트캠프 스타일 */
+/* 나는아직 런칭 부트캠프 상세페이지
+   레이아웃: 세로로 긴 상세페이지. 네이비 히어로 → 요약 → 본문 → 산출물/변화 → 다음 강 연결.
+   모티프: 일시정지(||)가 재생(▶)으로 바뀌는 진행 표시 */
+@font-face{font-family:"Pretendard";src:url(assets/embedded/font-01.woff) format("woff");font-weight:100 900;font-display:swap}
+:root{
+  --navy:#1A2342; --lime:#CCFF00; --orange:#FF5722;
+  --bg:#FFFFFF; --ink:#1A2342; --mute:#566080; --soft:#F3F5FA; --line:#DCE0EC; --card:#FFFFFF;
+  --orange-ink:#CF3B0B; --hl:#CCFF00; --hl-ink:#1A2342; --band:#EEF1F8;
+  --font:"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1330; --ink:#EAEEF8; --mute:#A3ACC8; --soft:#162048; --line:#2A3563; --card:#131A3D;
+  --orange-ink:#FF8A63; --band:#18214A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1330; --ink:#EAEEF8; --mute:#A3ACC8; --soft:#162048; --line:#2A3563; --card:#131A3D;
+  --orange-ink:#FF8A63; --band:#18214A; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.75;font-weight:400;
+  -webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit}
+img{max-width:100%;height:auto}
+.in{width:100%;max-width:880px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+strong{font-weight:700}
+mark{background:var(--hl);color:var(--hl-ink);padding:0 .25em;font-weight:700;border-radius:2px}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;padding-block:20px 56px;position:relative;overflow:hidden}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.topbar img{height:34px;width:auto;display:block}
+.steps{display:flex;gap:6px;flex-wrap:wrap}
+.steps a{text-decoration:none;font-size:13px;font-weight:600;padding:5px 12px;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;line-height:1.4}
+.steps a:hover{border-color:var(--lime)}
+.steps a[aria-current]{background:var(--orange);border-color:var(--orange);color:var(--navy);font-weight:800}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--lime);text-transform:uppercase}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-top:14px}
+.bigno{font-size:clamp(64px,14vw,120px);font-weight:900;line-height:1;letter-spacing:-.03em;color:#fff;display:flex;align-items:baseline;gap:.06em}
+.bigno small{font-size:.38em;font-weight:800;color:var(--lime)}
+.motif{display:flex;align-items:center;gap:8px;height:clamp(54px,11vw,92px)}
+.motif i{display:block;width:clamp(12px,2.6vw,20px);height:100%;background:var(--orange);border-radius:3px}
+.motif b{display:block;height:100%;aspect-ratio:.9;background:var(--orange);clip-path:polygon(0 0,100% 50%,0 100%);margin-left:6px}
+.hero h1{font-size:clamp(28px,5.4vw,46px);font-weight:800;line-height:1.28;letter-spacing:-.02em;margin-top:18px;text-wrap:balance}
+.hero .lead{margin-top:18px;font-size:clamp(16px,2.4vw,19px);color:#DDE3F3;max-width:46em;font-weight:500}
+.kq{margin-top:32px;background:var(--lime);color:var(--navy);padding:18px 22px;max-width:46em;border-radius:20px}
+.kq span{display:block;font-size:12px;font-weight:800;letter-spacing:.14em}
+.kq p{font-size:clamp(17px,2.6vw,20px);font-weight:700;line-height:1.55;margin-top:4px}
+
+/* sections */
+section.s{padding-block:56px 8px}
+.sh{margin-bottom:24px}
+.tag{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--orange-ink);text-transform:uppercase}
+.sh h2{font-size:clamp(24px,4.2vw,32px);font-weight:800;line-height:1.3;letter-spacing:-.02em;margin-top:4px;text-wrap:balance}
+.sh p{color:var(--mute);margin-top:8px;max-width:none;width:100%}
+h3{font-size:20px;font-weight:800;line-height:1.4;letter-spacing:-.01em}
+h4{font-size:16px;font-weight:700}
+.mute{color:var(--mute)}
+
+/* summary */
+.sum{margin-top:56px;position:relative;z-index:2}
+.sumcard{background:var(--card);border:2px solid var(--navy);box-shadow:6px 6px 0 var(--lime)}
+.sumcard>header{background:var(--navy);color:#fff;padding:10px 20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.sumcard>header b{font-size:15px;font-weight:800}
+.sumcard>header span{font-size:12px;letter-spacing:.14em;color:var(--lime);font-weight:700}
+.sumgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.sumgrid>div{padding:20px;border-left:1px solid var(--line);min-width:0}
+.sumgrid>div:first-child{border-left:0}
+.sumgrid h4{font-size:12px;letter-spacing:.12em;color:var(--orange-ink);font-weight:800;text-transform:uppercase;margin-bottom:10px}
+.sumgrid li{font-size:15px;line-height:1.6;padding-left:14px;position:relative;margin-top:8px}
+.sumgrid li::before{content:"";position:absolute;left:0;top:.62em;border-left:6px solid var(--orange);border-top:4px solid transparent;border-bottom:4px solid transparent}
+.num{font-size:44px;font-weight:900;line-height:1;letter-spacing:-.03em}
+.num small{font-size:16px;font-weight:700;margin-left:4px;color:var(--mute)}
+@media (max-width:720px){.sumgrid{grid-template-columns:1fr}.sumgrid>div{border-left:0;border-top:1px solid var(--line)}.sumgrid>div:first-child{border-top:0}.hero-grid{grid-template-columns:1fr}.motif{order:-1;justify-content:flex-start}}
+
+/* strategy items */
+.strat>li{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;padding-block:18px;border-top:1px solid var(--line)}
+.strat>li:last-child{border-bottom:1px solid var(--line)}
+.strat .mk{width:12px;height:16px;background:var(--orange);clip-path:polygon(0 0,100% 50%,0 100%);margin-top:7px}
+.strat h3{font-size:18px}
+.strat p{color:var(--mute);margin-top:4px}
+
+/* modules */
+.mods{display:grid;gap:40px}
+.mod{display:grid;grid-template-columns:48px minmax(0,1fr);gap:0 18px}
+.mno{width:48px;height:48px;background:var(--navy);color:var(--lime);font-weight:900;font-size:22px;display:grid;place-items:center}
+.mod h3{padding-top:8px}
+.mbody{grid-column:2;margin-top:14px;display:grid;gap:16px;min-width:0}
+.bl>li{position:relative;padding-left:16px;margin-top:8px;line-height:1.65}
+.bl>li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;background:var(--orange)}
+.bl .bl{margin-top:4px}
+.bl .bl>li::before{background:var(--mute);width:5px;height:5px}
+@media (max-width:560px){.mod{grid-template-columns:1fr}.mbody{grid-column:1}.mno{width:40px;height:40px;font-size:18px}.mod h3{padding-top:10px}}
+
+/* viz blocks */
+.vz{background:var(--soft);padding:18px 20px;min-width:0}
+.vz>h4{font-size:13px;letter-spacing:.08em;color:var(--mute);font-weight:800;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);border:1px solid var(--line);padding:5px 12px;font-size:14px;font-weight:600;border-radius:999px}
+.chip.o{background:var(--orange);border-color:var(--orange);color:var(--navy);font-weight:800}
+.chip.n{background:var(--navy);border-color:var(--navy);color:#fff}
+.formula{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px}
+.formula>div{flex:1 1 150px;background:var(--card);border:2px solid var(--navy);padding:12px 14px;min-width:0;border-radius:18px}
+.formula>div b{display:block;font-size:17px;font-weight:800}
+.formula>div span{font-size:14px;color:var(--mute);line-height:1.5;display:block;margin-top:2px}
+.formula>em{font-style:normal;font-weight:900;font-size:24px;color:var(--orange);align-self:center;flex:0 0 auto}
+.flow{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.flow>div{background:var(--card);border:1px solid var(--line);padding:12px 14px;position:relative;min-width:0}
+.flow>div b{display:block;font-size:15px;font-weight:800}
+.flow>div span{display:block;font-size:13.5px;color:var(--mute);line-height:1.5;margin-top:3px}
+.flow>div small{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--orange-ink);margin-bottom:2px}
+.flow.hi>div:last-child{background:var(--navy);border-color:var(--navy);color:#fff}
+.flow.hi>div:last-child span{color:#C9D1EA}.flow.hi>div:last-child small{color:var(--lime)}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px;line-height:1.55}
+th{background:var(--navy);color:#fff;text-align:left;font-weight:700;padding:9px 12px;font-size:13px;white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;background:var(--card)}
+td:first-child{font-weight:700;white-space:nowrap}
+.pos{color:var(--ink)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.box{background:var(--card);border:1px solid var(--line);padding:16px 18px;min-width:0}
+.box h4{margin-bottom:6px}
+.box.k{border:2px solid var(--navy)}
+.box .lb{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--orange-ink);display:block;margin-bottom:4px}
+.box p,.box li{font-size:14.5px;line-height:1.6}
+.box ul{margin-top:6px}
+.box ul li{position:relative;padding-left:12px;margin-top:4px}
+.box ul li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;background:var(--mute)}
+.pro li::before{background:var(--orange)!important}
+@media (max-width:720px){.two,.three{grid-template-columns:1fr}}
+.quote{border-top:3px solid var(--navy);padding-top:12px;font-size:19px;font-weight:700;line-height:1.55;letter-spacing:-.01em}
+.quote small{display:block;font-size:14px;color:var(--mute);font-weight:400;margin-top:6px}
+.eq{font-weight:700;font-size:15px;background:var(--card);border:1px dashed var(--mute);padding:8px 12px;display:inline-block;margin-top:6px}
+
+/* ROAS bars */
+.roas{display:grid;gap:12px}
+.roas .r{display:grid;grid-template-columns:78px minmax(0,1fr);gap:12px;align-items:center}
+.roas .r span{font-size:13px;font-weight:800}
+.roas .bar{height:34px;background:var(--navy);color:#fff;font-weight:900;display:flex;align-items:center;padding-left:12px;font-size:17px;min-width:70px}
+.roas .bar.o{background:var(--orange);color:var(--navy)}
+
+/* tree */
+.tree{font-size:14.5px}
+.tree ul{margin-left:18px;border-left:2px solid var(--line);padding-left:14px}
+.tree li{margin-top:8px;position:relative}
+.tree>li:first-child{margin-top:0}
+.tree b{background:var(--navy);color:#fff;padding:2px 10px;font-weight:700;display:inline-block}
+.tree em{font-style:normal;color:var(--mute);margin-left:6px;font-size:13px}
+.tree li.o>b{background:var(--orange);color:var(--navy)}
+
+/* deliverables */
+.dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dl>li{background:var(--card);border:1px solid var(--line);padding:16px 18px;min-width:0;border-radius:20px}
+.dl .lb{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--navy);background:var(--hl);display:inline-block;padding:1px 7px;margin-bottom:8px}
+.dl h4{font-size:16px;line-height:1.4}
+.dl p{font-size:14.5px;color:var(--mute);margin-top:4px;line-height:1.6}
+@media (max-width:640px){.dl{grid-template-columns:1fr}}
+
+/* takeaway */
+.take{background:var(--navy);color:#fff;padding:36px 0;margin-top:64px}
+.take .tag{color:var(--lime)}
+.take h2{font-size:clamp(24px,4.2vw,32px);font-weight:800;margin-top:4px;line-height:1.3}
+.take ul{margin-top:22px;display:grid;gap:16px}
+.take li{display:grid;grid-template-columns:auto 1fr;gap:14px;font-size:clamp(16px,2.4vw,19px);font-weight:600;line-height:1.6}
+.take li::before{content:"";width:14px;height:18px;background:var(--lime);clip-path:polygon(0 0,100% 50%,0 100%);margin-top:6px}
+
+/* chain / nav */
+.chain{padding-block:56px 64px}
+.link{background:var(--soft);padding:18px 20px;border-radius:20px}
+.link .lb{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--orange-ink)}
+.link p{margin-top:6px;font-size:15px}
+.pn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+.pn a{display:block;text-decoration:none;border:2px solid var(--navy);padding:16px 18px;min-width:0;border-radius:20px}
+.pn a:hover{background:var(--navy);color:#fff}
+.pn a:hover small{color:var(--lime)}
+.pn small{display:block;font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--orange-ink)}
+.pn b{display:block;font-size:17px;font-weight:800;margin-top:2px;line-height:1.4}
+.pn a.next{text-align:right;background:var(--orange);border-color:var(--orange);color:var(--navy)}
+.pn a.next small{color:var(--navy)}
+.pn a.next:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.pn a.next:hover small{color:var(--lime)}
+.pn span.e{visibility:hidden}
+@media (max-width:560px){.pn{grid-template-columns:1fr}.pn a.next{text-align:left}}
+
+/* footer */
+.foot{background:var(--navy);color:#fff;margin-top:64px;padding-block:44px 36px}
+.foot img.lg{height:64px;width:auto;display:block}
+.foot .msg{font-size:clamp(20px,3.6vw,28px);font-weight:800;margin-top:22px;line-height:1.35;letter-spacing:-.01em}
+.foot .msg2{color:var(--lime);font-weight:600;margin-top:8px;font-size:15px}
+.ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:30px;border-top:1px solid rgba(255,255,255,.25);padding-top:22px}
+.ops h4{font-size:12px;letter-spacing:.12em;color:var(--lime);font-weight:800}
+.ops p{font-size:14.5px;color:#DDE3F3;margin-top:4px;line-height:1.6}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.foot nav a{font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:999px;font-weight:600}
+.foot nav a:hover{border-color:var(--lime)}
+
+/* hub */
+.cards{display:grid;gap:14px}
+.lc{display:grid;grid-template-columns:72px minmax(0,1fr);gap:0 18px;text-decoration:none;border:2px solid var(--navy);padding:18px 20px;background:var(--card);border-radius:20px}
+.lc:hover{box-shadow:6px 6px 0 var(--lime)}
+.lc .n{font-size:44px;font-weight:900;line-height:1;color:var(--orange-ink);letter-spacing:-.03em}
+.lc .n small{font-size:16px;font-weight:800;color:var(--ink)}
+.lc h3{font-size:19px}
+.lc p{color:var(--mute);margin-top:4px;font-size:14.5px;line-height:1.6}
+.lc .go{grid-column:2;margin-top:10px;font-size:13px;font-weight:800;color:var(--orange-ink);letter-spacing:.06em}
+.hub-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;align-items:center}
+.hub-hero img.st{width:100%;max-width:420px;justify-self:center}
+@media (max-width:720px){.hub-hero{grid-template-columns:1fr}.hub-hero img.st{max-width:300px}}
+.pipe{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.pipe>div{background:var(--soft);padding:12px;min-width:0}
+.pipe b{display:block;font-size:14px;font-weight:800}
+.pipe small{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--orange-ink)}
+.pipe span{display:block;font-size:13px;color:var(--mute);line-height:1.5;margin-top:4px}
+@media (max-width:720px){.pipe{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.lc{transition:box-shadow .15s}}
+
+
+@media (max-width: 640px) {
+  .refund-strip-banner {
+    padding: 14px 0 !important;
+  }
+  .refund-strip-banner .in {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .refund-strip-banner .rf-content {
+    align-items: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .refund-strip-banner .rf-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 10px 16px !important;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .refund-strip-banner {
+    padding: 14px 0 !important;
+  }
+  .refund-strip-banner .in {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .refund-strip-banner .rf-content {
+    align-items: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .refund-strip-banner .rf-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 10px 16px !important;
+  }
+}
+/* =========================================================
+   [스마트 인터랙션] 스크롤 감지 하단 플로팅 환불 규정 띠배너
+   ========================================================= */
+.refund-floating-bar {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 99998 !important;
+  background: rgba(13, 19, 31, 0.94) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-top: 1px solid rgba(204, 255, 0, 0.4) !important;
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.35) !important;
+  padding: 11px 20px !important;
+  box-sizing: border-box !important;
+  transform: translateY(105%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+}
+
+.refund-floating-bar.visible {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.rf-inner {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+}
+
+.rf-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.rf-tag {
+  background: #ccff00 !important;
+  color: #0b0f19 !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.05em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+.rf-text {
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #f8fafc !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.rf-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #1e293b !important;
+  border: 1px solid rgba(204, 255, 0, 0.45) !important;
+  color: #f8fafc !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  padding: 7px 15px !important;
+  border-radius: 20px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.rf-btn:hover {
+  background: #ccff00 !important;
+  color: #0b0f19 !important;
+  border-color: #ccff00 !important;
+  transform: translateY(-1px) !important;
+}
+
+.rf-btn svg {
+  transition: transform 0.2s ease !important;
+}
+
+.rf-btn:hover svg {
+  transform: translateX(2px) !important;
+}
+
+/* 모바일 화면 최적화 */
+@media (max-width: 768px) {
+  .refund-floating-bar {
+    padding: 9px 12px !important;
+  }
+  .rf-inner {
+    gap: 10px !important;
+  }
+  .rf-text {
+    font-size: 12px !important;
+  }
+  .rf-btn {
+    padding: 6px 11px !important;
+    font-size: 11.5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .rf-tag {
+    display: none !important;
+  }
+}
+
+
+/* 공감형 3단 현실의 벽 섹션 (PAIN POINTS) */
+.pain-section {
+  padding: 44px 0 0;
+  background: #ffffff;
+  border-bottom: none;
+}
+.pain-inner {
+  width: 100%; max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.pain-header {
+  margin-bottom: 26px;
+}
+.pain-badge {
+  display: inline-block;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #475569;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.pain-badge strong {
+  color: #0f172a;
+}
+.pain-title {
+  font-size: 27px;
+  font-weight: 900;
+  line-height: 1.35;
+  color: #0f172a;
+  letter-spacing: -0.8px;
+  word-break: keep-all;
+}
+.pain-title .highlight-box {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 3px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-left: 4px;
+}
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.pain-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px 20px 22px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pain-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+}
+.pain-visual {
+  width: 100%;
+  height: 190px;
+  background: #ffffff;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.pain-visual svg {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
+}
+.pain-num {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #2563eb;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.pain-card-title {
+  font-size: 17.5px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.42;
+  margin-bottom: 10px;
+  letter-spacing: -0.4px;
+  word-break: keep-all;
+}
+.pain-card-desc {
+  font-size: 14.5px;
+  color: #64748b;
+  line-height: 1.62;
+  letter-spacing: -0.3px;
+  word-break: keep-all;
+}
+@media (max-width: 820px) {
+  .pain-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pain-title {
+    font-size: 23px;
+  }
+  .pain-card {
+    padding: 22px 18px 20px;
+  }
+}
+
+.pain-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.pain-card:hover .pain-visual img {
+  transform: scale(1.05);
+}
+
+
+/* 섹션 헤더 리드문 우측 여백 제로화: 전폭 확장 */
+.sh p {
+  max-width: none !important;
+  width: 100% !important;
+  line-height: 1.6 !important;
+}
+
+/* =========================================================
+   식스샵 전용 최적화: 레이아웃 여백 & 고도화된 애니메이션
+   ========================================================= */
+
+/* 1. 상단 중복 제거: 내부 topbar(중복 로고 & 1~5강 스텝) 숨김 */
+.hero .topbar {
+  display: none !important;
+}
+
+/* 2. 상단 및 하단 여유 공간 확보 */
+#bootcamp-app-root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  background: var(--bg) !important;
+  color: var(--ink) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif !important;
+  position: relative !important;
+}
+
+.hero {
+  padding-top: 52px !important;
+  padding-bottom: 44px !important;
+}
+
+.foot {
+  padding-bottom: 120px !important;
+}
+
+.sixshop-bottom-spacer {
+  width: 100% !important;
+  height: 110px !important;
+  clear: both !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 40px !important;
+    padding-bottom: 32px !important;
+  }
+  .foot {
+    padding-bottom: 130px !important;
+  }
+  .sixshop-bottom-spacer {
+    height: 120px !important;
+  }
+}
+
+
+/* =========================================================
+   [스마트 인터랙션] 스크롤 감지 하단 플로팅 환불 규정 띠배너
+   ========================================================= */
+.refund-floating-bar {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 99998 !important;
+  background: rgba(13, 19, 31, 0.94) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-top: 1px solid rgba(204, 255, 0, 0.4) !important;
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.35) !important;
+  padding: 11px 20px !important;
+  box-sizing: border-box !important;
+  transform: translateY(105%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+}
+
+.refund-floating-bar.visible {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.rf-inner {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+}
+
+.rf-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.rf-tag {
+  background: #ccff00 !important;
+  color: #0b0f19 !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.05em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+.rf-text {
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #f8fafc !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.rf-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #1e293b !important;
+  border: 1px solid rgba(204, 255, 0, 0.45) !important;
+  color: #f8fafc !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  padding: 7px 15px !important;
+  border-radius: 20px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.rf-btn:hover {
+  background: #ccff00 !important;
+  color: #0b0f19 !important;
+  border-color: #ccff00 !important;
+  transform: translateY(-1px) !important;
+}
+
+.rf-btn svg {
+  transition: transform 0.2s ease !important;
+}
+
+.rf-btn:hover svg {
+  transform: translateX(2px) !important;
+}
+
+/* 모바일 화면 최적화 */
+@media (max-width: 768px) {
+  .refund-floating-bar {
+    padding: 9px 12px !important;
+  }
+  .rf-inner {
+    gap: 10px !important;
+  }
+  .rf-text {
+    font-size: 12px !important;
+  }
+  .rf-btn {
+    padding: 6px 11px !important;
+    font-size: 11.5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .rf-tag {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   카카오톡 채널 1:1 상담 우측 하단 플로팅 버튼
+   ========================================================= */
+.kakao-floating-btn {
+  position: fixed !important;
+  right: 22px !important;
+  bottom: 85px !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  background-color: #FEE500 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+  z-index: 999999 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease !important;
+  animation: kakaoFloat 3.2s ease-in-out infinite alternate !important;
+  will-change: transform, box-shadow !important;
+}
+
+@keyframes kakaoFloat {
+  0% {
+    transform: translateY(0px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 12px rgba(254, 229, 0, 0.45);
+  }
+  100% {
+    transform: translateY(0px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.kakao-floating-btn:hover {
+  transform: translateY(-8px) scale(1.08) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 16px rgba(254, 229, 0, 0.7) !important;
+}
+
+@media (max-width: 768px) {
+  .kakao-floating-btn {
+    right: 16px !important;
+    bottom: 80px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .kakao-floating-btn svg {
+    width: 25px !important;
+    height: 25px !important;
+  }
+}
+
+/* =========================================================
+   [애니메이션 1] 메인 히어로 스티커 그래픽 부드러운 플로팅
+   ========================================================= */
+.hub-hero .st {
+  animation: floatHeroSticker 3.6s ease-in-out infinite alternate !important;
+  transform-origin: center bottom !important;
+  will-change: transform !important;
+}
+
+@keyframes floatHeroSticker {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* =========================================================
+   [애니메이션 2] 수강권 신청 CTA 버튼 펄스 & 화살표 모션
+   ========================================================= */
+.hero-cta-box {
+  margin-top: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.btn-buy-lecture {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  background: #FF5722 !important;
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  padding: 13px 28px !important;
+  border-radius: 2px !important;
+  text-decoration: none !important;
+  border: 1px solid #FF5722 !important;
+  letter-spacing: -0.3px !important;
+  cursor: pointer !important;
+  animation: ctaGlowPulse 2.6s infinite ease-in-out !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, box-shadow !important;
+}
+
+@keyframes ctaGlowPulse {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(255, 87, 34, 0.35);
+  }
+  50% {
+    box-shadow: 0 6px 26px rgba(255, 87, 34, 0.65), 0 0 0 4px rgba(255, 87, 34, 0.15);
+  }
+}
+
+.btn-buy-lecture:hover {
+  background: #E64A19 !important;
+  border-color: #E64A19 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 28px rgba(255, 87, 34, 0.65) !important;
+  color: #ffffff !important;
+}
+
+.btn-buy-lecture svg {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-buy-lecture:hover svg {
+  transform: translateX(5px) !important;
+}
+
+@media (max-width: 768px) {
+  .hero-cta-box {
+    justify-content: center !important;
+    margin-top: 20px !important;
+  }
+  .btn-buy-lecture {
+    width: 100% !important;
+    max-width: 320px !important;
+    padding: 13px 20px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* =========================================================
+   [애니메이션 3] 1~5강 카드: 내부 색상 변경 없이 테두리에만 네온 빛 효과 (Border Glow)
+   ========================================================= */
+.cards .lc {
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.26s ease,
+              box-shadow 0.26s ease !important;
+  position: relative !important;
+  border-radius: 2px !important;
+  background: var(--card) !important;
+  border: 2px solid var(--navy) !important;
+}
+
+/* 호버 시 내부 배경색은 유지하고 테두리에만 오렌지 네온 발광 빛 효과 */
+.cards .lc:hover {
+  border-color: #FF5722 !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 0 0 1px #FF5722, 0 0 18px rgba(255, 87, 34, 0.45), 0 8px 24px rgba(255, 87, 34, 0.18) !important;
+}
+
+/* 호버 시 강의 번호(숫자) 영역 - 별도 배경 박스 없이 자연스러운 스케일 모션 */
+.cards .lc .n {
+  transition: transform 0.22s ease !important;
+  background: transparent !important;
+}
+
+.cards .lc:hover .n {
+  transform: scale(1.06) !important;
+}
+
+/* 호버 시 상세페이지 보기 링크 화살표 이동 */
+.cards .lc .go {
+  transition: transform 0.22s ease, color 0.22s ease !important;
+  display: inline-block !important;
+}
+
+.cards .lc:hover .go {
+  color: #FF5722 !important;
+  transform: translateX(6px) !important;
+}
+
+/* =========================================================
+   [애니메이션 4] 5주 파이프라인(Chain) 호버 입체 효과
+   ========================================================= */
+.pipe > div {
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: 2px !important;
+}
+
+.pipe > div:hover {
+  transform: translateY(-3px) !important;
+  background: #ffffff !important;
+  border-color: #FF5722 !important;
+  box-shadow: 0 8px 20px rgba(26, 35, 66, 0.08) !important;
+}
+
+/* =========================================================
+   [애니메이션 5] 상단 스티키 메뉴바 인터랙션
+   ========================================================= */
+.bootcamp-sticky-nav {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  background: rgba(26, 35, 66, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  padding: 10px 16px !important;
+  margin: 0 !important;
+}
+
+.bootcamp-nav-inner {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+}
+.bootcamp-nav-inner::-webkit-scrollbar {
+  display: none !important;
+}
+
+.bootcamp-nav-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 7px 16px !important;
+  border-radius: 2px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  white-space: nowrap !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+}
+
+.bootcamp-nav-item:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+.bootcamp-nav-item.active {
+  background: #FF5722 !important;
+  color: #ffffff !important;
+  border-color: #FF5722 !important;
+  border-radius: 2px !important;
+  box-shadow: 0 2px 10px rgba(255, 87, 34, 0.45) !important;
+}
+
+@media (max-width: 768px) {
+  .bootcamp-sticky-nav {
+    padding: 8px 8px !important;
+  }
+  .bootcamp-nav-inner {
+    justify-content: flex-start !important;
+    gap: 6px !important;
+  }
+  .bootcamp-nav-item {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+    border-radius: 2px !important;
+  }
+}
+
+/* =========================================================
+   [애니메이션 6] 탭 뷰 전환 부드러운 Slide-Up Fade
+   ========================================================= */
+.bootcamp-view {
+  display: none;
+}
+.bootcamp-view.active {
+  display: block;
+  animation: bootcampFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+@keyframes bootcampFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================================================
+   [기본 및 다크 모드 가독성 최적화 (High-Contrast Typography)]
+   ========================================================= */
+.cards .lc h3 {
+  color: var(--ink) !important;
+}
+.cards .lc p {
+  color: var(--mute) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+  #bootcamp-app-root {
+    background: #0E1330 !important;
+    color: #EAEEF8 !important;
+  }
+  /* 1~5강 메인 카드 다크모드 대응 */
+  .cards .lc {
+    background: #131A3D !important;
+    border-color: #2A3563 !important;
+  }
+  .cards .lc h3 {
+    color: #FFFFFF !important;
+  }
+  .cards .lc p {
+    color: #CBD5E1 !important;
+  }
+  .cards .lc .n {
+    color: #FF8A63 !important;
+  }
+  .cards .lc .go {
+    color: #FF8A63 !important;
+  }
+  .cards .lc:hover {
+    border-color: #FF5722 !important;
+    box-shadow: 0 0 0 1px #FF5722, 0 0 20px rgba(255, 87, 34, 0.5), 0 8px 24px rgba(255, 87, 34, 0.25) !important;
+  }
+  /* 섹션 및 본문 텍스트 전체 화이트/실버 전환 */
+  .sec h2, .sec h3, h1, h2, h3, h4 {
+    color: #FFFFFF !important;
+  }
+  .sec p, .sec li, p, li {
+    color: #CBD5E1 !important;
+  }
+  .lead {
+    color: #A3ACC8 !important;
+  }
+  .eyebrow {
+    color: #CCFF00 !important;
+  }
+  /* 형광 라임색(OUR STORY) 박스 내부 텍스트는 다크모드에서도 항상 짙은 네이비(#1A2342)로 선명하게 유지 */
+  .kq, .kq *, .kq p, .kq span {
+    color: #1A2342 !important;
+  }
+  mark, .dl .lb {
+    color: #1A2342 !important;
+  }
+  /* 1~5강 상세페이지 내 박스/카드/체인 블록 */
+  .pipe > div, .box, .callout, .step, .card {
+    background: #131A3D !important;
+    border-color: #2A3563 !important;
+    color: #EAEEF8 !important;
+  }
+  .pipe > div h4, .box h4, .callout h4, .step h4 {
+    color: #FFFFFF !important;
+  }
+  /* 상단 네비게이션 다크 모드 */
+  .bootcamp-sticky-nav {
+    background: rgba(14, 19, 48, 0.96) !important;
+    border-bottom: 1px solid #2A3563 !important;
+  }
+  .bootcamp-nav-item:not(.active) {
+    background: #162048 !important;
+    color: #EAEEF8 !important;
+    border-color: #2A3563 !important;
+  }
+}
+</style>
+
+<div id="bootcamp-app-root">
+  <!-- 상단 스티키 내비게이션 메뉴바 -->
+  <nav class="bootcamp-sticky-nav" aria-label="부트캠프 강의 내비게이션">
+    <div class="bootcamp-nav-inner">
+      <a href="#index" class="bootcamp-nav-item active" data-target="index" onclick="showBootcampView('index'); return false;">부트캠프 홈</a>
+      <a href="#lecture1" class="bootcamp-nav-item" data-target="lecture1" onclick="showBootcampView('lecture1'); return false;">1강</a>
+      <a href="#lecture2" class="bootcamp-nav-item" data-target="lecture2" onclick="showBootcampView('lecture2'); return false;">2강</a>
+      <a href="#lecture3" class="bootcamp-nav-item" data-target="lecture3" onclick="showBootcampView('lecture3'); return false;">3강</a>
+      <a href="#lecture4" class="bootcamp-nav-item" data-target="lecture4" onclick="showBootcampView('lecture4'); return false;">4강</a>
+      <a href="#lecture5" class="bootcamp-nav-item" data-target="lecture5" onclick="showBootcampView('lecture5'); return false;">5강</a>
+    </div>
+  </nav>
+
+  <div id="view-index" class="bootcamp-view active">
+    <header class="hero"><div class="in"><div class="topbar"><a href="#index" onclick="showBootcampView('index'); return false;" aria-label="나는아직 허브로"><img src="assets/embedded/png-01.png" alt="I’m Still 나는아직"></a><nav class="steps" aria-label="강의 이동"><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강</a></nav></div><div class="hub-hero"><div><div class="eyebrow">Launch Bootcamp · 5-Week Sprint</div><h1>나는아직 런칭 부트캠프</h1><p class="lead">혼자 고민하는 시간을 끝내고, 멘토와 함께 직접 기획하고 서류를 쓰며 완제품을 세상에 출시하는 A to Z 런칭 부트캠프입니다. 원료 소싱부터 OEM 공장 비딩, 품목제조신고, 손익분기점 설계, 출시 당일 런칭 마케팅까지 5주간의 실전으로 첫 번째 완제품을 완성합니다.</p><div class="kq"><span>OUR STORY</span><p>혼자 고민하면 1년이 걸리지만, 실무 시스템과 함께라면 5주 만에 구조를 만듭니다.</p></div></div><img class="st" src="assets/embedded/png-02.png" alt="i’m still 나는 아직 기획부터 제품 출시까지"></div></div></header><section class="s"><div class="in"><header class="sh"><span class="tag">SPRINT</span><h2>5주 5강, 강별 상세페이지</h2><p>각 강의 요약은 페이지 최상단에 있습니다.</p></header><div class="cards"><a class="lc" href="#lecture1" onclick="showBootcampView('lecture1'); return false;"><div class="n">1<small>강</small></div><div><h3>내 아이디어를 실제 제품으로 만드는 첫걸음</h3><p>질문에 답하며 채우는 표준 제조 레시피(가배합서)와 12주 론칭 일정표를 완성합니다.</p></div><span class="go">상세페이지 보기 →</span></a><a class="lc" href="#lecture2" onclick="showBootcampView('lecture2'); return false;"><div class="n">2<small>강</small></div><div><h3>디자이너 외주 맡기기 &amp; 내 쇼핑몰 기본 세팅</h3><p>외주 사기 안 당하는 디자인 의뢰서와 결제·배송 연동 쇼핑몰 필수 설정을 끝냅니다.</p></div><span class="go">상세페이지 보기 →</span></a><a class="lc" href="#lecture3" onclick="showBootcampView('lecture3'); return false;"><div class="n">3<small>강</small></div><div><h3>손님이 살 수밖에 없는 매력 찾기 &amp; 사전 검증</h3><p>대량 생산 전에 손님 지갑을 열게 할 7가지 질문지와 안전한 사전 반응 검증법을 배웁니다.</p></div><span class="go">상세페이지 보기 →</span></a><a class="lc" href="#lecture4" onclick="showBootcampView('lecture4'); return false;"><div class="n">4<small>강</small></div><div><h3>광고비 날리지 않는 인스타그램 광고 실습</h3><p>하루 1~2만 원으로 진짜 팔리는 광고만 골라내고 낭비를 막는 왕초보 광고 실습입니다.</p></div><span class="go">상세페이지 보기 →</span></a><a class="lc" href="#lecture5" onclick="showBootcampView('lecture5'); return false;"><div class="n">5<small>강</small></div><div><h3>한 번 산 손님이 다시 사게 만드는 자동화 시스템</h3><p>배송 완료 후 알림톡이 저절로 나가고 재구매가 일어나는 단골 자동화 시스템을 완성합니다.</p></div><span class="go">상세페이지 보기 →</span></a></div></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">CHAIN OF EXECUTION</span><h2>매주 끊기지 않는 하나의 파이프라인</h2></header><div class="pipe"><div><small>STEP 1</small><b>1강 기획</b><span>타임라인 · 개발노트</span></div><div><small>STEP 2</small><b>2강 비주얼/인프라</b><span>패키지 가이드 · 가격정책 v1·v2</span></div><div><small>STEP 3</small><b>3강 설득/검증</b><span>소구점 로직트리 · PMF</span></div><div><small>STEP 4</small><b>4강 광고 스케일업</b><span>메타 광고 · 퍼널 · 지표 최적화</span></div><div><small>STEP 5</small><b>5강 CRM/재구매</b><span>프로모션 · 올인원 CRM · 리뷰 빌드업</span></div></div><div class="link" style="margin-top:14px"><span class="lb">연결 고리</span><p>1주차의 기획 데이터가 2주차의 가격과 디자인이 되고, 3주차의 검증을 거쳐 4주차의 광고 소재로 태어나며, 5주차의 재구매 시스템으로 완결됩니다.</p></div></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">PRINCIPLES</span><h2>5가지 핵심 가치</h2></header><div class="two"><div class="box"><h4>지속 가능한 수익 (Survival)</h4><p>유행하는 마케팅보다 ‘제조원가 5배수 원칙’과 BEP(손익분기점) 재무 설계를 우선합니다</p></div><div class="box"><h4>오프라인 핸즈온 (Hands-on)</h4><p>5주간 현장에서 가배합서를 쓰고, 5곳 이상의 공장과 비딩하고, 인쇄 감리와 심의 서류를 직접 통과시킵니다</p></div><div class="box"><h4>숫자와 데이터 중심 (Numbers &amp; Logic)</h4><p>가격정책 v1·v2, BEP, 페이먼트 시트, ROAS 지표로 진짜 남는 구조를 만듭니다</p></div><div class="box"><h4>기획부터 그로스까지 (End-to-End)</h4><p>자사몰 세팅, 광고 소재, 메타 비즈니스 관리자, CRM과 리뷰 최적화까지 판매 전 과정을 연결합니다</p></div><div class="box"><h4>메이커 연대 (Makers Network)</h4><p>서로 다른 배경의 동료 메이커와 리뷰하고 피드백하며 출시 이후에도 서로를 지지합니다</p></div></div></div></section><div style="height:8px"></div><footer class="foot"><div class="in"><img class="lg" src="assets/embedded/png-03.png" alt="I’m Still 나는아직"><p class="msg">아직 끝나지 않았다, 지금부터 시작이다</p><p class="msg2">정체된 시간(Pause)을 도약의 모멘텀(Play)으로, 아이디어를 세상 밖 완제품(Box)으로.</p><div class="ops"><div><h4>진행 장소</h4><p>잠실 미팅룸 (결제 후 개별 안내)</p></div><div><h4>진행 방식</h4><p>주 1회 오프라인 집중 실습(Hands-on) + 주간 실무 과제</p></div><div><h4>정원</h4><p>개별 브랜드의 기획서와 시트를 밀착 디렉팅하기 위해 기수당 소수 정예 선발제로 운영</p></div><div><h4>준비물</h4><p>개인 노트북, 런칭하고 싶은 브랜드/제품 아이디어 (없어도 1강에서 도출)</p></div></div><nav aria-label="강의 바로가기"><a href="#index" onclick="showBootcampView('index'); return false;">전체 보기</a><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강 브랜드·제품 기획</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강 디자인·가격·자사몰</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강 소구점·PMF 검증</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강 퍼포먼스 마케팅</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강 CRM·재구매</a></nav></div></footer>
+  </div>
+  <div id="view-lecture1" class="bootcamp-view">
+    <header class="hero"><div class="in"><div class="topbar"><a href="#index" onclick="showBootcampView('index'); return false;" aria-label="나는아직 허브로"><img src="assets/embedded/png-01.png" alt="I’m Still 나는아직"></a><nav class="steps" aria-label="강의 이동"><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;" aria-current="page">1강</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강</a></nav></div><div class="eyebrow">Week 1 · 5-Week Sprint</div><div class="hero-grid"><div class="bigno" aria-label="1강"><span>1</span><small>강</small></div><div class="motif" aria-hidden="true"><i></i><i></i><b></b></div></div><h1>내 아이디어를 실제 제품으로 만드는 첫걸음</h1><p class="lead">머릿속 막연한 생각을 질문에 맞춰 적기만 하세요. 공장에 바로 넘길 수 있는 '표준 레시피 양식(가배합서)'과 12주 출시 계획표를 완성합니다.</p><div class="kq"><span>핵심 질문 & 해결</span><p><strong>“비전공자인 내가 화학이나 원료를 몰라도, 공장에 무시당하지 않고 제품을 만들 수 있을까?”</strong><br><span style='color:var(--navy);font-size:15px;display:inline-block;margin-top:6px'>👉 네, 원하는 효능과 컨셉만 체크하면 공장이 알아서 견적을 내주는 표준 양식(가배합서)을 드립니다.</span></p></div>
+    <div class="hero-cta-box">
+      <a href="https://litt.ly/im_still./sale/cxBCJcp" target="_blank" rel="noopener noreferrer" class="btn-buy-lecture">
+        <span>1강 수강권 신청하기</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+</div></header>
+
+<!-- 공감형 3단 현실의 벽 섹션 -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="pain-header">
+      <span class="pain-badge"><strong>실전 제조를 준비할 때</strong></span>
+      <h2 class="pain-title">막상 공장 알아보고 만들려니 보이기 시작하는 <span class='highlight-box'>현실의 벽</span></h2>
+    </div>
+    <div class="pain-grid">
+      
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-01.jpg" alt="원료 배합비 난관"></div>
+          <span class="pain-num">01</span>
+          <h3 class="pain-card-title">원료와 성분을 모르니, 공장과 대화 자체가 안 통합니다.</h3>
+          <p class="pain-card-desc">좋은 건 알겠는데 배합비가 어떻게 되냐고 물어봅니다. 전문 용어를 몰라 어버버하다가 '초짜'인 게 들통나고 미팅이 흐지부지 끝납니다.</p>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-02.jpg" alt="공장 소싱 난관"></div>
+          <span class="pain-num">02</span>
+          <h3 class="pain-card-title">수백 개 공장 중 도대체 어디에 연락해야 할지 막막합니다.</h3>
+          <p class="pain-card-desc">인터넷에 검색하면 OEM 공장은 수백 군데인데, 최소 수량(MOQ)은 얼마인지, 소량 생산은 해주는지 몰라 전화 한 통 걸기조차 두렵습니다.</p>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-03.jpg" alt="행정 신고 난관"></div>
+          <span class="pain-num">03</span>
+          <h3 class="pain-card-title">서류 하나 잘못 냈다가 법적 책임 생길까 봐 불안합니다.</h3>
+          <p class="pain-card-desc">품목제조신고나 라벨 표기사항에 글자 하나 잘못 적었다가 벌금이나 식약처 단속에 걸릴까 봐 무서워 한 걸음도 앞으로 못 나갑니다.</p>
+        </div>
+        
+    </div>
+  </div>
+</section>
+
+<div class="in sum"><div class="sumcard"><header><b>1강 요약</b><span>SUMMARY</span></header><div class="sumgrid"><div><h4>핵심 전략</h4><ul><li>AI 마스터 프롬프트에 생각을 주입해 30여 개 기획 매트릭스를 한 번에 펼칩니다</li><li>타깃·혜택·킬러 셀링 포인트 중 <strong>단 하나의 핵심 소구점</strong>만 골라 뾰족하게 가공합니다</li><li>36단계 론칭 플랜과 12주 타임라인으로 누가 무엇을 맡을지 정합니다</li></ul></div><div><h4>현장 산출물</h4><p class="num">6<small>종 템플릿</small></p><p class="mute" style="font-size:14px;margin-top:8px">수강생에게 바로 지급합니다</p></div><div><h4>수강 후 변화</h4><ul><li>아이디어가 공장에 바로 넘길 수 있는 <strong>가배합서 규격</strong>이 됩니다</li><li>추출한 고객 결핍과 킬러 셀링 포인트를 손에 쥡니다</li><li>출시일까지 할 일과 담당자가 한눈에 정리됩니다</li></ul></div></div></div></div><section class="s"><div class="in"><header class="sh"><span class="tag">STRATEGY</span><h2>막연한 브레인스토밍을 끝내는 ‘초정밀 기획’</h2></header><ul class="strat"><li><span class="mk" aria-hidden="true"></span><div><h3>AI 마스터 프롬프트로 구조화</h3><p>창업자가 가장 많은 시간을 허비하는 단계는 막연한 브레인스토밍입니다. 머릿속에 흩어진 생각을 10년 차 이상 CPG 전문 기획자의 사고방식으로 짠 [AI 마스터 프롬프트]에 넣습니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>기반 데이터 초고속 추출</h3><p>타깃의 숨은 고통(Pain Point), 대체 불가능한 혜택(Benefit), 제형별 섭취 타이밍, 킬러 셀링 포인트 등 30여 개 기획 매트릭스를 AI로 1차 펼쳐냅니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>선택과 집중으로 ‘뾰족한 포지셔닝’ 확정</h3><p>AI가 뽑은 광범위한 데이터 중 우리 브랜드의 생존 무기가 될 단 하나의 핵심 소구점(메인 컨셉)과 차별화된 배합 원칙을 골라, 경쟁사가 흉내 낼 수 없는 제품 기획서로 가공합니다.</p></div></li></ul></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">CURRICULUM</span><h2>1강 상세 커리큘럼</h2></header><div class="mods"><article class="mod"><div class="mno" aria-hidden="true">1</div><h3>신제품 론칭 36단계 마케팅 플랜 &amp; 12주 자동 연동 타임라인</h3><div class="mbody"><ul class="bl"><li><strong>36단계 론칭 액션 트리</strong>: 카테고리 발굴부터 공장 컨택, 품목제조신고, 상세페이지, PG사, 광고 세팅, 3PL 출고까지 전 단계의 R&amp;R을 나눕니다</li><li><strong>12주 자동 계산 간트차트</strong>: 프로젝트 시작일만 입력하면 출시일까지 일별·주차별 마일스톤이 자동으로 생성되는 실무 캘린더를 세팅합니다</li></ul><div class="vz"><h4>R&amp;R 분장</h4><div class="chips"><span class="chip n">대표</span><span class="chip n">PM</span><span class="chip n">MD</span><span class="chip n">디자이너</span></div></div><div class="vz"><h4>12주 론칭 타임라인</h4><div class="chips"><span class="chip">W1</span><span class="chip">W2</span><span class="chip">W3</span><span class="chip">W4</span><span class="chip">W5</span><span class="chip">W6</span><span class="chip">W7</span><span class="chip">W8</span><span class="chip">W9</span><span class="chip">W10</span><span class="chip">W11</span><span class="chip o">출시</span></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">2</div><h3>CPG 제품 개발노트 &amp; AI 프롬프트 기반 타깃 데이터 마이닝</h3><div class="mbody"><ul class="bl"><li><strong>타깃 페르소나의 하루 추적</strong>: ‘30대 직장인’ 같은 뭉툭한 타깃팅에서 벗어나, ‘특정 시간, 특정 결핍(Pain Point)’을 겪는 1인 페르소나를 정의합니다</li><li><strong>CPG 제품 기획 &amp; 상용화 마스터 워크벤치</strong>: 타깃 시장을 고르면 AI 프롬프트가 연동되어 숏폼 영상 콘티, 상세페이지 카피, 킬러 셀링 포인트를 실시간으로 뽑아내는 시스템을 실습합니다</li></ul><div class="vz"><h4>3대 원료 배합 공식</h4><div class="formula"><div><b>대세원료</b><span>판단 기준</span></div><em>+</em><div><b>뜨는원료</b><span>광고 후킹</span></div><em>+</em><div><b>보이는원료</b><span>대체가치 · 체감 만족</span></div></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">3</div><h3>원료 배합비 명세서(BOM) &amp; 상용화 가배합서 1차 구축</h3><div class="mbody"><ul class="bl"><li><strong>제조 공장 소통용 규격 확립</strong>: 품목 분류, 제형, 포장 규격, 1회 섭취량을 정합니다</li><li><strong>가배합서 및 상용화 개발 규격 작성</strong>: 목표 맛/향, 당도, 원가, 유효 성분 총량을 산출해 공장이 거절하지 못하는 1차 가배합서를 완성합니다</li></ul><div class="vz"><h4>가배합서에 들어가는 항목</h4><div class="tw"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>품목 분류</td><td>기타식품 / 건기식</td></tr><tr><td>제형</td><td>액상 · 스틱 · 분말 · 정제</td></tr><tr><td>포장 규격</td><td>포장 규격 및 1회 섭취량 설정</td></tr><tr><td>대표 맛/향</td><td>제품의 대표 맛과 향</td></tr><tr><td>목표 당도</td><td>Brix</td></tr><tr><td>목표 원가</td><td>포당 단가</td></tr><tr><td>유효 성분 총량</td><td>Total Actives</td></tr></tbody></table></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">4</div><h3>브랜드 기획 AI 워크벤치 &amp; 클라우드 드라이브 권한 체계화</h3><div class="mbody"><ul class="bl"><li><strong>브랜드 기획 30대 핵심 지표 도출</strong>: 브랜드 정의, 톤앤매너, 메인 컬러, 확장 라인업 로드맵을 AI 프롬프트로 추출하고 아카이빙합니다</li><li><strong>에셋 유실 제로 드라이브 세팅</strong>: R&amp;D, 디자인, 인쇄 감리, 마케팅 에셋이 뒤섞이지 않도록 폴더 트리를 구조화합니다</li></ul></div></article></div></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">DELIVERABLES</span><h2>1강 현장 산출물</h2><p>수강생에게 템플릿을 바로 지급합니다.</p></header><ul class="dl"><li><span class="lb">TEMPLATE</span><h4>신제품 론칭 36단계 MKT Plan</h4><p>출시 전후 필수 업무와 담당자별 체크리스트</p></li><li><span class="lb">TEMPLATE</span><h4>12주 자동 연동 타임라인 캘린더</h4><p>시작일 기준 주차별 일정이 자동 산출되는 론칭 로드맵 시트</p></li><li><span class="lb">TEMPLATE</span><h4>제품 개발노트 &amp; 페르소나 분석 시트</h4><p>고객의 고통, 해결 전략, 대체가치를 정의하는 기획 시트</p></li><li><span class="lb">TEMPLATE</span><h4>CPG 제품 기획 상용화 워크벤치</h4><p>타깃 데이터와 프롬프트가 실시간 결합되는 AI 자동화 툴</p></li><li><span class="lb">TEMPLATE</span><h4>1차 가배합서 및 상용화 규격서</h4><p>공장 비딩 시 즉시 제출 가능한 원료 배합비(BOM) 명세서</p></li><li><span class="lb">TEMPLATE</span><h4>브랜드 기획 AI 프롬프트 워크벤치</h4><p>30여 개 브랜드 매트릭스를 추출·확정하는 AI 워크시트</p></li></ul></div></section><div class="take"><div class="in"><span class="tag">TAKEAWAY</span><h2>1강 수강 후 변화</h2><ul><li>머릿속에 맴돌던 추상적인 아이디어가 실제 제조 공장에 바로 넘길 수 있는 수치화된 가배합서 규격으로 바뀝니다.</li><li>뜬구름 잡는 브랜딩 대신, AI 프롬프트로 추출한 정밀한 고객 결핍과 뾰족한 킬러 셀링 포인트를 손에 쥐게 됩니다.</li><li>출시일까지 어떤 일을 누구에게 맡겨야 하는지 12주 론칭 타임라인(36단계)이 한눈에 정리됩니다.</li></ul></div></div><section class="chain"><div class="in"><div class="link"><span class="lb">STEP 1 → STEP 2 · 기획 완성 → 비주얼 & 쇼핑몰 세팅</span><p>🚀 <strong>1강에서 제품 아이디어가 나왔다면?</strong><br>👉 이제 2강에서 <strong>디자이너에게 맡길 의뢰서를 쓰고 내 쇼핑몰 결제창을 열 차례</strong>입니다.</p></div><div class="pn"><a href="#index" onclick="showBootcampView('index'); return false;"><small>← 처음으로</small><b>5주 전체 로드맵</b></a><a class="next" href="#lecture2" onclick="showBootcampView('lecture2'); return false;"><small>다음 강 보기 👉</small><b>2강. 디자인 외주 & 쇼핑몰 세팅</b></a></div></div></section><footer class="foot"><div class="in"><img class="lg" src="assets/embedded/png-03.png" alt="I’m Still 나는아직"><p class="msg">아직 끝나지 않았다, 지금부터 시작이다</p><p class="msg2">정체된 시간(Pause)을 도약의 모멘텀(Play)으로, 아이디어를 세상 밖 완제품(Box)으로.</p><div class="ops"><div><h4>진행 장소</h4><p>잠실 미팅룸 (결제 후 개별 안내)</p></div><div><h4>진행 방식</h4><p>주 1회 오프라인 집중 실습(Hands-on) + 주간 실무 과제</p></div><div><h4>정원</h4><p>개별 브랜드의 기획서와 시트를 밀착 디렉팅하기 위해 기수당 소수 정예 선발제로 운영</p></div><div><h4>준비물</h4><p>개인 노트북, 런칭하고 싶은 브랜드/제품 아이디어 (없어도 1강에서 도출)</p></div></div><nav aria-label="강의 바로가기"><a href="#index" onclick="showBootcampView('index'); return false;">전체 보기</a><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강 브랜드·제품 기획</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강 디자인·가격·자사몰</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강 소구점·PMF 검증</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강 퍼포먼스 마케팅</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강 CRM·재구매</a></nav></div></footer>
+  </div>
+  <div id="view-lecture2" class="bootcamp-view">
+    <header class="hero"><div class="in"><div class="topbar"><a href="#index" onclick="showBootcampView('index'); return false;" aria-label="나는아직 허브로"><img src="assets/embedded/png-01.png" alt="I’m Still 나는아직"></a><nav class="steps" aria-label="강의 이동"><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;" aria-current="page">2강</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강</a></nav></div><div class="eyebrow">Week 2 · 5-Week Sprint</div><div class="hero-grid"><div class="bigno" aria-label="2강"><span>2</span><small>강</small></div><div class="motif" aria-hidden="true"><i></i><i></i><b></b></div></div><h1>디자이너 외주 맡기기 &amp; 내 쇼핑몰 기본 세팅</h1><p class="lead">외주 디자이너에게 사기당하지 않고 내 생각을 100% 전달하는 법, 그리고 결제와 배송이 연동되는 쇼핑몰 필수 기본 설정을 끝냅니다.</p><div class="kq"><span>핵심 질문 & 해결</span><p><strong>“디자인 감각도 없고 쇼핑몰도 처음인데, 혼자서 결제창까지 다 열 수 있을까?”</strong><br><span style='color:var(--navy);font-size:15px;display:inline-block;margin-top:6px'>👉 디자이너가 찰떡같이 알아듣는 의뢰서 양식과, 클릭 순서대로 따라 하는 쇼핑몰 필수 설정 체크리스트를 드립니다.</span></p></div>
+    <div class="hero-cta-box">
+      <a href="https://litt.ly/im_still./sale/LculmUD" target="_blank" rel="noopener noreferrer" class="btn-buy-lecture">
+        <span>2강 수강권 신청하기</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+</div></header>
+
+<!-- 공감형 3단 현실의 벽 섹션 -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="pain-header">
+      <span class="pain-badge"><strong>온라인 판매를 준비할 때</strong></span>
+      <h2 class="pain-title">내 쇼핑몰을 직접 열려니 부딪히기 시작하는 <span class='highlight-box'>현실의 벽</span></h2>
+    </div>
+    <div class="pain-grid">
+      
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-04.jpg" alt="디자인 외주 실패"></div>
+          <span class="pain-num">01</span>
+          <h3 class="pain-card-title">디자이너한테 외주 줬더니, 내가 생각한 느낌이 전혀 아닙니다.</h3>
+          <p class="pain-card-desc">수백만 원 주고 패키지 디자인을 맡겼는데 엉뚱한 결과물이 나옵니다. 뭐라고 수정 요청을 해야 할지도 몰라 속만 끓입니다.</p>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-05.jpg" alt="PG 결제 및 인프라 막힘"></div>
+          <span class="pain-num">02</span>
+          <h3 class="pain-card-title">PG 결제사 심사, 통신판매업... 어디서부터 해야 할지 모릅니다.</h3>
+          <p class="pain-card-desc">쇼핑몰 솔루션은 가입했는데 카드 결제 붙이는 법, 구매안전서비스 확인증, 도메인 연결 등 용어부터 외계어라 진도가 안 나갑니다.</p>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-06.jpg" alt="역마진 및 수수료 공포"></div>
+          <span class="pain-num">03</span>
+          <h3 class="pain-card-title">물건 하나 팔아도 택배비, 수수료 떼이면 남는 게 없습니다.</h3>
+          <p class="pain-card-desc">단가를 어떻게 책정해야 할지 몰라 대충 정했더니, 광고비에 쇼핑몰 수수료까지 빠지면 팔수록 손해 보는 구조가 되어버립니다.</p>
+        </div>
+        
+    </div>
+  </div>
+</section>
+
+<div class="in sum"><div class="sumcard"><header><b>2강 요약</b><span>SUMMARY</span></header><div class="sumgrid"><div><h4>핵심 전략</h4><ul><li>벤치마킹 무드보드와 패키지 가이드로 <strong>외주 소통 오차를 최소로</strong> 만듭니다</li><li>자사몰·스마트스토어·B2B까지 가격이 무너지지 않는 <strong>가격정책 v1·v2</strong>를 완성합니다</li></ul></div><div><h4>현장 산출물</h4><p class="num">5<small>종 템플릿</small></p><p class="mute" style="font-size:14px;margin-top:8px">수강생에게 바로 지급합니다</p></div><div><h4>수강 후 변화</h4><ul><li>명확한 규격과 레퍼런스가 담긴 브리프로 작업기간과 외주비용 손실을 줄입니다.</li><li>광고비와 채널 수수료를 쓰고도 통장에 돈이 남는 <strong>5배수 마진</strong> 가격정책을 확보합니다</li><li>트래픽을 받아내고 객단가를 올릴 자사몰 구조를 갖춥니다</li></ul></div></div></div></div><section class="s"><div class="in"><header class="sh"><span class="tag">STRATEGY</span><h2>실패 없는 비주얼 &amp; 수익 인프라</h2><p>초보 창업자의 가장 흔한 실수는 모호한 디자인 외주 요청과, 숨은 비용을 놓친 가격 책정입니다. 현업 시트로 두 가지를 미리 막습니다.</p></header><ul class="strat"><li><span class="mk" aria-hidden="true"></span><div><h3>외주 커뮤니케이션 오차 제로화</h3><p>원하는 비주얼 감도를 보여주는 벤치마킹 무드보드와, 소구점·원료 배합 스토리를 디자이너에게 정확히 전달하는 패키지 디자인 가이드를 확립합니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>채널별 마진 방어 가격정책 (v1 &amp; v2)</h3><p>목형비, 동판비, 검사비 같은 초도비부터 배송비, 플랫폼 수수료, 마케팅 CPA까지 시뮬레이션해 자사몰·스마트스토어·타 노출채널·B2B 납품의 가격 붕괴를 막습니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>고전환 D2C 자사몰 아키텍처</h3><p>카페24 기반 자사몰 개발 업무플로우와 기능명세서로 정기구독, 번들 세트 메뉴, CRM 연동, 결제 PG 동선을 구조화합니다.</p></div></li></ul></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">CURRICULUM</span><h2>2강 상세 커리큘럼</h2></header><div class="mods"><article class="mod"><div class="mno" aria-hidden="true">1</div><h3>비주얼 감도 벤치마킹 &amp; 디자이너 협업 모집요강</h3><div class="mbody"><ul class="bl"><li><strong>벤치마킹 감도 시트</strong>: 타깃이 반응하는 상위 브랜드의 컬러, 무드보드, 톤앤매너 이미지를 시각적으로 구조화합니다</li><li><strong>디자이너 협업 브리프 규격화</strong> 및 외주 계약 시 체크포인트와 예산 기준선을 확립합니다</li></ul><div class="vz"><h4>외주 계약 체크포인트</h4><div class="box"><h4>외주 계약 가이드</h4><ul class=""><li>확인해야 할 체크포인트</li><li>외주 예산 기준선 확립</li></ul></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">2</div><h3>패키지 디자인 가이드 (기획에서 디자인으로의 인수인계)</h3><div class="mbody"><ul class="bl"><li><strong>제품 기획 데이터의 디자인 규격화</strong>: 제품명, 주기능 테마, 주원료/부원료 함량, 배합 스토리를 정의합니다</li><li><strong>고객 경험(UX) 중심의 TPO 소구점</strong>: ‘언제, 왜 먹어야 하는가’를 각인시키는 섭취 사이클과 제형 경험을 설계합니다</li><li><strong>페르소나 결핍과 감정 터치</strong>: 타깃의 일상 속 고민과 니즈를 반영한 카피와 비주얼 가이드라인을 씁니다</li></ul></div></article><article class="mod"><div class="mno" aria-hidden="true">3</div><h3>제품 원가 시뮬레이션 &amp; 가격정책 v1·v2</h3><div class="mbody"><ul class="bl"><li><strong>초도비 및 숨은 비용 7종 분해</strong></li><li><strong>자사몰 vs 스마트스토어 혜택 &amp; 프로모션 마진 시뮬레이터</strong>: 1box / 3box / 8~9box 번들 옵션별로 쿠폰, 배송비, 광고비를 적용한 뒤 최종 영업이익률(GP%)을 검증합니다</li></ul><div class="vz"><h4>초도비 · 숨은 비용 7종</h4><div class="chips"><span class="chip ">목형비</span><span class="chip ">동판비</span><span class="chip ">수지비</span><span class="chip ">품목신고비</span><span class="chip ">영양성분 검사비</span><span class="chip ">성분 검사비</span><span class="chip ">패키지 디자인비</span></div></div><div class="two"><div class="box k"><span class="lb">PRICE POLICY v1</span><h4>v1 기본 원가 구조</h4><ul class=""><li>COGs(제조원가), VAT, 배송비 합산</li><li>최소 공급가(매입/수출용) 설정</li><li>온라인 노출채널(스토어/자사몰) 상시 판매가</li></ul></div><div class="box k"><span class="lb">PRICE POLICY v2</span><h4>v2 다채널 가격정책</h4><ul class=""><li>타 채널 추가 할인 구조</li><li>B2B 도매 공급가 방어선 설계</li></ul></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">4</div><h3>D2C 자사몰 제작 (기능명세서 &amp; 사이트맵)</h3><div class="mbody"><ul class="bl"><li><strong>자사몰 개발 업무플로우</strong>: 카페24 기반 PC/모바일 반응형 디자인, 일반 PG 및 간편결제(네이버페이, 카카오페이) 연동</li><li><strong>구매 전환 중심의 사이트맵 &amp; UI 세팅</strong><ul class="bl"><li>Shop 메뉴 구성: 단일 제품, 2·3·6·9개 세트 번들, 정기구독</li><li>이탈 방지 팝업, 카카오톡 상담 고정 버튼</li></ul></li></ul></div></article></div></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">DETAIL PAGE</span><h2>상세페이지, 왜 아직도 중요한가</h2></header><div class="mods"><article class="mod"><div class="mno" aria-hidden="true">A</div><h3>상세페이지가 영향을 주는 지표</h3><div class="mbody"><div class="two"><div class="box"><h4>매출과 직접 연관성 낮음</h4><div class="chips"><span class="chip ">체류 시간 Residence Time</span><span class="chip ">이탈률 Bounce Rate</span><span class="chip ">스크롤 깊이 Scroll Depth</span></div></div><div class="box k"><h4>매출과 직접 연관성 높음</h4><div class="chips"><span class="chip o">전환율 CVR</span><span class="chip o">객단가 AOV</span><span class="chip o">광고 수익률 ROAS</span></div></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">B</div><h3>커머스에서 상세페이지의 역할</h3><div class="mbody"><div class="quote">이커머스 상세페이지는 ‘상점 안의 영업사원’입니다.<small>잘 파는 것만큼 브랜드 핏에 맞는 용모와 태도, 일관된 톤앤매너로 제품을 설명하는 것이 중요합니다. 단순 후킹만으로 팔리던 시기는 지났습니다.</small></div></div></article><article class="mod"><div class="mno" aria-hidden="true">C</div><h3>상세페이지 길이와 시장 침투율(Penetration of Market)</h3><div class="mbody"><div class="vz"><h4>시장 침투 단계</h4><div class="flow"><div><b>Early Phase</b></div><div><b>Growth Phase</b></div><div><b>Hyper Growth Phase</b><span>연 매출 1천억 내외 이상</span></div><div><b>Mature Phase</b></div></div></div><p>Hyper Growth 단계부터는 상세페이지가 길 필요가 없습니다. 이미 고객이 브랜드를 알고 있고, 사지 않는 이유가 설득 부족보다 가격 경쟁력 같은 다른 요인에 있기 때문입니다.</p></div></article><article class="mod"><div class="mno" aria-hidden="true">D</div><h3>상세페이지 서술의 구조 (5대 핵심 구성요소)</h3><div class="mbody"><div class="vz"><h4>서술 순서</h4><div class="flow"><div><small>STEP 1</small><b>도입부</b><span>임팩트 있는 캐치프레이즈, 압도적인 비주얼</span></div><div><small>STEP 2</small><b>신뢰도 장치</b><span>판매 실적, 수상/입점 실적, 권위자·유명인(인플루언서) 증언</span></div><div><small>STEP 3</small><b>Pain point &amp; Solution</b><span>타깃 상황 나열 → 해결책 제시, B&amp;A 콘텐츠, 제품 개발기(약식)</span></div><div><small>STEP 4</small><b>Benefit &amp; Feature</b><span>유저향 Benefit이 제목, 기능은 서브타이틀, WHY 입증(독자 기술, 인증)</span></div><div><small>STEP 5</small><b>프로모션</b><span>TPO·목적 달성형 프로모션 또는 상시 프로모션</span></div></div></div><div class="vz"><h4>13단계 고전환 설득 구조의 뼈대</h4><div class="flow hi"><div><b>Hook</b><span>시선 확보</span></div><div><b>Pain Point</b><span>내 문제 인식</span></div><div><b>New Idea</b></div><div><b>Benefit</b></div><div><b>Proof</b><span>근거 · 기술</span></div><div><b>Offer</b><span>구매 전환</span></div></div></div></div></article></div></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">DELIVERABLES</span><h2>2강 현장 산출물</h2><p>수강생에게 템플릿을 바로 지급합니다.</p></header><ul class="dl"><li><span class="lb">TEMPLATE</span><h4>제품 원가 시뮬레이션표</h4><p>초도비, 원료비, 부자재비, 포장배송비를 반영한 실제 제조원가 산출 시트</p></li><li><span class="lb">TEMPLATE</span><h4>다채널 가격정책서 (v1, v2)</h4><p>자사몰, 오픈마켓, B2B 납품 채널별 마진율(GP%)과 공급가 방어 시트</p></li><li><span class="lb">TEMPLATE</span><h4>자사몰/스토어 혜택 시뮬레이터</h4><p>옵션 세트별 쿠폰, 광고비 투입 대비 순이익률 자동 계산기</p></li><li><span class="lb">TEMPLATE</span><h4>패키지 디자인 가이드 템플릿</h4><p>외주 디자이너에게 제품 스펙과 감성을 오차 없이 전달하는 브리프</p></li><li><span class="lb">TEMPLATE</span><h4>자사몰 기능명세서 &amp; 사이트맵</h4><p>카페24 기반 결제, CRM, 회원 혜택, 카테고리 개발 체크리스트</p></li></ul></div></section><div class="take"><div class="in"><span class="tag">TAKEAWAY</span><h2>2강 수강 후 변화</h2><ul><li>디자이너에게 “알아서 예쁘게 해주세요”가 아닌, 명확한 규격과 레퍼런스가 담긴 전문 브리프를 전달해 작업기간과 외주비용 손실을 줄입니다..</li><li>감에 의존한 판매가가 아닌, 광고비와 채널 수수료를 쓰고도 통장에 돈이 남는 5배수 마진의 가격정책(v1·v2)을 확보합니다.</li><li>광고 트래픽을 온전히 받아내고 객단가를 끌어올릴 D2C 자사몰 기능 구조를 구축하게 됩니다.</li></ul></div></div><section class="chain"><div class="in"><div class="link"><span class="lb">STEP 2 → STEP 3 · 쇼핑몰 준비 → 손님이 살 이유 & 검증</span><p>🚀 <strong>쇼핑몰과 가격이 준비되었다면?</strong><br>👉 이제 3강에서 <strong>손님이 살 수밖에 없는 매력 포인트(카피)를 뽑고 대량 생산 전 반응을 검증할 차례</strong>입니다.</p></div><div class="pn"><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;"><small>← 이전 강</small><b>1강. 제품 기획 첫걸음</b></a><a class="next" href="#lecture3" onclick="showBootcampView('lecture3'); return false;"><small>다음 강 보기 👉</small><b>3강. 팔리는 매력 찾기 & 반응 검증</b></a></div></div></section><footer class="foot"><div class="in"><img class="lg" src="assets/embedded/png-03.png" alt="I’m Still 나는아직"><p class="msg">아직 끝나지 않았다, 지금부터 시작이다</p><p class="msg2">정체된 시간(Pause)을 도약의 모멘텀(Play)으로, 아이디어를 세상 밖 완제품(Box)으로.</p><div class="ops"><div><h4>진행 장소</h4><p>잠실 미팅룸 (결제 후 개별 안내)</p></div><div><h4>진행 방식</h4><p>주 1회 오프라인 집중 실습(Hands-on) + 주간 실무 과제</p></div><div><h4>정원</h4><p>개별 브랜드의 기획서와 시트를 밀착 디렉팅하기 위해 기수당 소수 정예 선발제로 운영</p></div><div><h4>준비물</h4><p>개인 노트북, 런칭하고 싶은 브랜드/제품 아이디어 (없어도 1강에서 도출)</p></div></div><nav aria-label="강의 바로가기"><a href="#index" onclick="showBootcampView('index'); return false;">전체 보기</a><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강 브랜드·제품 기획</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강 디자인·가격·자사몰</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강 소구점·PMF 검증</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강 퍼포먼스 마케팅</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강 CRM·재구매</a></nav></div></footer>
+  </div>
+  <div id="view-lecture3" class="bootcamp-view">
+    <header class="hero"><div class="in"><div class="topbar"><a href="#index" onclick="showBootcampView('index'); return false;" aria-label="나는아직 허브로"><img src="assets/embedded/png-01.png" alt="I’m Still 나는아직"></a><nav class="steps" aria-label="강의 이동"><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;" aria-current="page">3강</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강</a></nav></div><div class="eyebrow">Week 3 · 5-Week Sprint</div><div class="hero-grid"><div class="bigno" aria-label="3강"><span>3</span><small>강</small></div><div class="motif" aria-hidden="true"><i></i><i></i><b></b></div></div><h1>손님이 살 수밖에 없는 매력 찾기 &amp; 사전 검증</h1><p class="lead">내 제품을 자랑하지 말고 손님이 지갑을 열 이유를 말해주세요. 대량 생산 전에 손님 반응부터 확인하는 안전한 검증법을 배웁니다.</p><div class="kq"><span>핵심 질문 & 해결</span><p><strong>“만들었는데 아무도 안 사면 어쩌지? 빚만 지는 건 아닐까?”</strong><br><span style='color:var(--navy);font-size:15px;display:inline-block;margin-top:6px'>👉 대량 생산에 돈 쓰기 전에, 7가지 질문지로 '진짜 팔리는 한 줄 카피'를 뽑고 손님 반응을 미리 확인합니다.</span></p></div>
+    <div class="hero-cta-box">
+      <a href="https://litt.ly/im_still./sale/JRmZVmU" target="_blank" rel="noopener noreferrer" class="btn-buy-lecture">
+        <span>3강 수강권 신청하기</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+</div></header>
+
+<!-- 공감형 3단 현실의 벽 섹션 -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="pain-header">
+      <span class="pain-badge"><strong>출시 직전 반응을 볼 때</strong></span>
+      <h2 class="pain-title">열심히 만들었는데 안 팔릴까 봐 엄습하는 <span class='highlight-box'>불안의 벽</span></h2>
+    </div>
+    <div class="pain-grid">
+      
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-07.jpg" alt="고객 무반응"></div>
+          <span class="pain-num">01</span>
+          <h3 class="pain-card-title">나한테는 너무 좋은데, 남들한테 설명하면 반응이 미적지근합니다.</h3>
+          <p class="pain-card-desc">좋은 성분 다 넣었다고 자랑하는데 지인들조차 '아 그렇구나' 하고 끝납니다. 손님 지갑을 열게 만드는 결정적인 한마디를 못 찾겠습니다.</p>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-08.jpg" alt="백지 상세페이지"></div>
+          <span class="pain-num">02</span>
+          <h3 class="pain-card-title">상세페이지 첫 줄 카피를 쓰려고 모니터만 3시간째 노려봅니다.</h3>
+          <p class="pain-card-desc">어디서 본 듯한 뻔한 문구만 적히고, 스크롤을 끝까지 내리고 싶게 만드는 설득 구조를 어떻게 짜야 할지 머리가 하얘집니다.</p>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-09.jpg" alt="재고 폭망 공포"></div>
+          <span class="pain-num">03</span>
+          <h3 class="pain-card-title">대량 생산해 놓고 재고가 창고에 쌓일까 봐 잠이 안 옵니다.</h3>
+          <p class="pain-card-desc">수백, 수천 개를 한 번에 찍어내야 싸다는데, 안 팔리면 이 빚을 어떻게 갚나 싶어 공장 계약 도장 찍기가 너무 무섭습니다.</p>
+        </div>
+        
+    </div>
+  </div>
+</section>
+
+<div class="in sum"><div class="sumcard"><header><b>3강 요약</b><span>SUMMARY</span></header><div class="sumgrid"><div><h4>핵심 전략</h4><ul><li>제품의 기능(Feature)을 소비자의 일상 혜택(Benefit)과 <strong>1초 후킹 카피</strong>로 번역합니다</li><li>광고비 대시보드와 계정 권한 체크리스트로 운영 리스크를 먼저 막습니다</li><li><strong>USP × 타깃 니즈 × 크리에이티브 유형</strong> 공식으로 PMF 검증용 소재 앵글을 뽑습니다</li></ul></div><div><h4>현장 산출물</h4><p class="num">4<small>종 템플릿</small></p><p class="mute" style="font-size:14px;margin-top:8px">수강생에게 바로 지급합니다</p></div><div><h4>수강 후 변화</h4><ul><li>제품의 기능이 소비자 지갑을 여는 카피와 혜택으로 바뀝니다</li><li>예산 누수와 계정 권한 꼬임으로 광고가 멈추는 위험을 사전에 막습니다</li><li>4강에 바로 투입할 고효율 콘텐츠 앵글과 광고 기획안을 확보합니다</li></ul></div></div></div></div><section class="s"><div class="in"><header class="sh"><span class="tag">STRATEGY</span><h2>공급자 중심의 기능을 ‘소비자 구매 전환 언어’로 번역하기</h2><p>좋은 원료와 배합을 갖추고도 소비자가 이해하지 못하는 공급자 용어만 늘어놓으면 전환율이 새어 나갑니다. 제품의 기능을 직관적인 소비자 언어로 번역하고, 론칭 전 마케팅 예산 체크와 PMF 검증으로 실패 없는 론칭 전략을 완성합니다.</p></header><ul class="strat"><li><span class="mk" aria-hidden="true"></span><div><h3>제품 기능의 소비자 언어화 (AI 상품 로직트리)</h3><p>“가르시니아 HCA 750mg”, “녹차 카테킨 300mg” 같은 수치 스펙을 “굶지 않고 야식 죄책감 지우기”, “회식 다음 날 가벼운 아침 루틴”처럼 소비자의 결핍(Pain Point)과 직결된 언어로 치환합니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>사전 리스크 체크 (예산 대시보드 &amp; 권한 인수인계)</h3><p>제품 출시 준비 시 광고 및 유통 단계별 예산을 추정하고 체크하는 종합 대시보드를 만들고, 커머스·광고·CRM 계정이 꼬이지 않도록 권한 부여 체크리스트를 확정합니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>PMF 검증 및 고효율 소재 앵글 발굴</h3><p>USP × 타깃의 니즈 × 크리에이티브 유형의 조합 공식으로, 광고 피로도 없이 반응이 나오는 콘텐츠 기획안을 도출합니다.</p></div></li></ul></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">CURRICULUM</span><h2>3강 상세 커리큘럼</h2></header><div class="mods"><article class="mod"><div class="mno" aria-hidden="true">1</div><h3>AI 프롬프트 기반 상품 로직트리 &amp; 포지셔닝 설계</h3><div class="mbody"><ul class="bl"><li><strong>AI 전환 카피라이팅 프롬프트</strong>: 이커머스 카피라이터 관점으로 원천 팩트(임상/인증/원료)를 보존하며 타깃·페인포인트·솔루션 매트릭스를 도출합니다</li><li><strong>상품 로직트리(Feature → Benefit)</strong>: 10대 제품 기능의 우선순위를 소비자가 체감하는 마케팅 언어로 계층화합니다</li><li><strong>정밀 상품 포지셔닝</strong>: 핵심 타깃(연령/성별/성향)의 Pain Point와 제품의 Solution을 1:1로 매칭해 구매 명분을 세웁니다</li></ul><div class="vz"><h4>제품의 기능 → 소비자 언어 번역 예시</h4><div class="tw"><table><thead><tr><th>제품의 기능</th><th>소비자 언어</th></tr></thead><tbody><tr><td>가르시니아 HCA 750mg</td><td>굶지 않고 야식 죄책감 지우기</td></tr><tr><td>녹차 카테킨 300mg</td><td>회식 다음 날 가벼운 아침 루틴</td></tr></tbody></table></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">2</div><h3>제품의 기능 → 소비자 언어(Benefit) 변환 &amp; 메인 카피라이팅</h3><div class="mbody"><ul class="bl"><li><strong>1초 시선 장악 헤드카피</strong>: 의구심을 호기심으로 바꾸는 직관적 질문과 결과 중심의 후킹 카피를 뽑습니다</li><li><strong>바디 카피 &amp; 서브 소구점</strong>: 원료의 정수, 섭취 편의성, 혈당/칼로리 안심 배려, 일상 루틴 형성 등 구매 저항을 없애는 문안을 설계합니다</li><li><strong>가격 대비 체감 가치 극대화</strong>: 소비 저항을 허무는 가격 앵커링 카피를 기획합니다</li></ul><div class="quote">하루 1,720원, 커피 반 잔 값으로 바꾸는 활력<small>가격 앵커링 카피 예시</small></div></div></article><article class="mod"><div class="mno" aria-hidden="true">3</div><h3>HOME 설계 &amp; 마케팅 광고비 예산 종합 대시보드</h3><div class="mbody"><ul class="bl"><li><strong>HOME 설계</strong>: 각 채널별 계정 정보와 범위를 정립합니다</li><li><strong>광고비 종합 예산 대시보드</strong>: 기획/홍보(노출)/유입(클릭) 단계별 예산 체크와 매체별 비중 관리</li><li><strong>계정 관리 및 권한 부여 체크리스트</strong>: 커머스, 광고 매체, 로그분석, CS 계정 인수인계 체계화</li></ul><div class="vz"><h4>관리하는 계정</h4><div class="chips"><span class="chip ">커머스</span><span class="chip ">광고 매체</span><span class="chip ">로그분석</span><span class="chip ">CS</span></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">4</div><h3>고효율 크리에이티브 발굴 공식 (USP × 타깃 니즈 × 포맷)</h3><div class="mbody"><div class="vz"><h4>소재 매트릭스</h4><div class="formula"><div><b>USP</b><span>카피 = Unique Selling Point. 제품의 핵심 차별화 포인트</span></div><em>×</em><div><b>타깃의 니즈</b><span>거칠기 감소 · 장 건강 · 높은 흡수율 · 리프팅 · 쌩얼 자신감 · 붓기 제거 · 노화 방지 · 미백 효과</span></div><em>×</em><div><b>크리에이티브 유형</b><span>Voice(고객/브랜드) · 오브제(인물/제품) · 포맷(이미지/영상)</span></div></div></div><h4>3대 광고 소재 유형 실전 적용</h4><div class="three"><div class="box"><span class="lb">TYPE 1</span><h4>새로운 크리에이티브 유형</h4><p>후킹성 ▲ 신선함 ▲ 자세한 제품 소개</p><p class="mute">쇼호스트/전문가형 시연 콘텐츠</p></div><div class="box"><span class="lb">TYPE 2</span><h4>오가닉으로 소비되는 유형</h4><p>광고 위화감 ▼ 친숙도 ▲ 고객 보이스</p><p class="mute">학습지 실제 사용기, 인스타 찐후기, 리얼 인터뷰, 전후 비교</p></div><div class="box"><span class="lb">TYPE 3</span><h4>혜택 강조 소재</h4><p>즉각적인 구매 유도 ▲ 강력한 USP 전달</p><p class="mute">블랙프라이데이 증정, 오늘까지 100원, 20% SALE, 69% OFF</p></div></div></div></article></div></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">DELIVERABLES</span><h2>3강 현장 산출물</h2><p>수강생에게 템플릿을 바로 지급합니다.</p></header><ul class="dl"><li><span class="lb">TEMPLATE</span><h4>AI 상품 로직트리 &amp; 포지셔닝 시트</h4><p>제품 기능(Feature)을 소비자 언어(Benefit)와 타깃 솔루션으로 변환하는 AI 시트</p></li><li><span class="lb">TEMPLATE</span><h4>마케팅 광고비 예산 종합 대시보드</h4><p>제품 출시 준비 시 광고 및 유통 단계별 집행 예산 추정 자동 계산 차트</p></li><li><span class="lb">TEMPLATE</span><h4>계정 관리 및 권한 부여 마스터 시트</h4><p>커머스, 광고 매체, 로그분석, CS 툴의 계정 및 권한 인수인계 양식</p></li><li><span class="lb">TEMPLATE</span><h4>고효율 크리에이티브 기획 템플릿</h4><p>USP × 니즈 × 포맷 매트릭스로 클릭률 높은 광고 소재를 기획하는 툴</p></li></ul></div></section><div class="take"><div class="in"><span class="tag">TAKEAWAY</span><h2>3강 수강 후 변화</h2><ul><li>공급자 관점의 제품의 기능이 소비자의 지갑을 즉각적으로 열게 만드는 날카로운 카피와 혜택(Benefit)으로 탈바꿈합니다.</li><li>런칭 시점에 예산이 새어 나가거나 계정 권한이 꼬여 광고가 멈추는 운영 리스크를 사전에 방지합니다.</li><li>4강 퍼포먼스 마케팅에 즉시 투입할 수 있는 검증된 고효율 콘텐츠 앵글과 광고 기획안을 확보하게 됩니다.</li></ul></div></div><section class="chain"><div class="in"><div class="link"><span class="lb">STEP 3 → STEP 4 · 반응 검증 → 광고비 안 날리는 실전 마케팅</span><p>🚀 <strong>팔리는 카피와 손님 반응을 확인했다면?</strong><br>👉 이제 4강에서 <strong>광고비 낭비 없이 하루 1~2만 원 소액으로 진짜 주문을 일으키는 실전 광고를 돌릴 차례</strong>입니다.</p></div><div class="pn"><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;"><small>← 이전 강</small><b>2강. 디자인 & 쇼핑몰 세팅</b></a><a class="next" href="#lecture4" onclick="showBootcampView('lecture4'); return false;"><small>다음 강 보기 👉</small><b>4강. 광고비 안 날리는 실전 마케팅</b></a></div></div></section><footer class="foot"><div class="in"><img class="lg" src="assets/embedded/png-03.png" alt="I’m Still 나는아직"><p class="msg">아직 끝나지 않았다, 지금부터 시작이다</p><p class="msg2">정체된 시간(Pause)을 도약의 모멘텀(Play)으로, 아이디어를 세상 밖 완제품(Box)으로.</p><div class="ops"><div><h4>진행 장소</h4><p>잠실 미팅룸 (결제 후 개별 안내)</p></div><div><h4>진행 방식</h4><p>주 1회 오프라인 집중 실습(Hands-on) + 주간 실무 과제</p></div><div><h4>정원</h4><p>개별 브랜드의 기획서와 시트를 밀착 디렉팅하기 위해 기수당 소수 정예 선발제로 운영</p></div><div><h4>준비물</h4><p>개인 노트북, 런칭하고 싶은 브랜드/제품 아이디어 (없어도 1강에서 도출)</p></div></div><nav aria-label="강의 바로가기"><a href="#index" onclick="showBootcampView('index'); return false;">전체 보기</a><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강 브랜드·제품 기획</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강 디자인·가격·자사몰</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강 소구점·PMF 검증</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강 퍼포먼스 마케팅</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강 CRM·재구매</a></nav></div></footer>
+  </div>
+  <div id="view-lecture4" class="bootcamp-view">
+    <header class="hero"><div class="in"><div class="topbar"><a href="#index" onclick="showBootcampView('index'); return false;" aria-label="나는아직 허브로"><img src="assets/embedded/png-01.png" alt="I’m Still 나는아직"></a><nav class="steps" aria-label="강의 이동"><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;" aria-current="page">4강</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강</a></nav></div><div class="eyebrow">Week 4 · 5-Week Sprint</div><div class="hero-grid"><div class="bigno" aria-label="4강"><span>4</span><small>강</small></div><div class="motif" aria-hidden="true"><i></i><i></i><b></b></div></div><h1>광고비 날리지 않는 인스타그램 광고 실습</h1><p class="lead">수학 공식이나 복잡한 그래프는 몰라도 됩니다. 하루 1~2만 원 소액으로 테스트하고, 확실하게 돈 벌어다 주는 광고만 골라내는 기준을 배웁니다.</p><div class="kq"><span>핵심 질문 & 해결</span><p><strong>“광고비로 수백만 원씩 날릴까 봐 무서운데, 초보도 안전하게 할 수 있을까?”</strong><br><span style='color:var(--navy);font-size:15px;display:inline-block;margin-top:6px'>👉 복잡한 영어 약자 대신 '딱 3가지 숫자'만 보고 끄고 켜는 안전 지출 기준을 알려드립니다.</span></p></div>
+    <div class="hero-cta-box">
+      <a href="https://litt.ly/im_still./sale/o53ab8d" target="_blank" rel="noopener noreferrer" class="btn-buy-lecture">
+        <span>4강 수강권 신청하기</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+</div></header>
+
+<!-- 공감형 3단 현실의 벽 섹션 -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="pain-header">
+      <span class="pain-badge"><strong>광고로 손님을 모을 때</strong></span>
+      <h2 class="pain-title">남들은 광고로 대박 난다는데 내가 하려니 막히는 <span class='highlight-box'>현실의 벽</span></h2>
+    </div>
+    <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-10.jpg" alt="인스타 광고 관리자 복잡함"></div>
+          <span class="pain-num">01</span>
+          <h3 class="pain-card-title">인스타 광고 관리자 화면을 켜자마자 복잡해서 꺼버립니다.</h3>
+          <p class="pain-card-desc">캠페인? 픽셀? 맞춤타깃? 뭐가 뭔지 하나도 모르겠고, 잘못 클릭했다가 돈이 왕창 빠져나갈까 봐 버튼 하나 누르기도 겁납니다.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-11.jpg" alt="광고비 소진과 전환 부재"></div>
+          <span class="pain-num">02</span>
+          <h3 class="pain-card-title">하루 5만 원씩 광고비를 썼는데, 장바구니 클릭조차 안 일어납니다.</h3>
+          <p class="pain-card-desc">내 피 같은 돈은 매일 빠져나가는데 왜 안 팔리는지, 광고 소재가 문제인지 상세페이지가 문제인지 도저히 원인을 알 수 없습니다.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-12.jpg" alt="광고 지표 해석 난관"></div>
+          <span class="pain-num">03</span>
+          <h3 class="pain-card-title">CTR, CPC, ROAS... 숫자가 너무 많아 뭘 봐야 할지 모릅니다.</h3>
+          <p class="pain-card-desc">광고 보고서에 숫자는 빽빽한데 이 광고를 지금 꺼야 하는지, 계속 둬야 하는지 판단 기준이 없어서 발만 동동 구릅니다.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<div class="in sum"><div class="sumcard"><header><b>4강 요약</b><span>SUMMARY</span></header><div class="sumgrid"><div><h4>핵심 전략</h4><ul><li>인지·흥미부터 비교·구매까지 <strong>제품 맞춤형 광고 퍼널</strong>을 설계합니다</li><li>3강의 고객 언어로 광고 카피·이미지·영상 소재를 만들고 A/B 테스트합니다</li><li>CPM → CTR → CVR → AOV를 구간별로 개선하고, 성과가 꺾이면 <strong>지표 드릴다운</strong>으로 원인을 찾습니다</li></ul></div><div><h4>현장 베네핏</h4><p class="num">3<small>종 템플릿</small></p><p class="mute" style="font-size:13.5px;margin-top:8px;line-height:1.5">• 3종 템플릿 &amp; 실전 교육자료<br>• 핵심 데이터 지표 해석 역량</p></div><div><h4>수강 후 변화</h4><ul><li>타깃 여정에 맞는 퍼널로 예산 낭비를 막습니다</li><li>CTR, CVR, ROAS를 숫자로 읽고 해석하는 안목을 갖춥니다</li><li>지표의 핵심 개념을 이해하고, 실제 케이스 스터디를 통해 데이터 흐름을 읽는 안목을 갖춥니다</li></ul></div></div></div></div><section class="s"><div class="in"><header class="sh"><span class="tag">STRATEGY</span><h2>제품 맞춤형 광고 퍼널과 ‘드릴다운’</h2><p>메타 광고 관리자 버튼만 켠다고 팔리지 않습니다. 현업에서 검증된 매출 수식에 기반해 효율을 극대화합니다.</p></header><ul class="strat"><li><span class="mk" aria-hidden="true"></span><div><h3>제품 맞춤형 광고 퍼널 구축</h3><p>인지·흥미 단계에서는 혜택에 반응할 잠재 타깃에게 매력적인 크리에이티브로 브랜드를 각인하고, 비교·구매 단계에서는 검색하거나 상세페이지로 유입된 고객이 경쟁사로 이탈하지 않도록 전환 장치를 촘촘히 배치합니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>고효율 광고 크리에이티브 양산 및 A/B 테스트</h3><p>3강에서 도출한 기술 스펙 → 고객 언어(Benefit)를 바탕으로 클릭률(CTR)을 높이는 광고 카피와 이미지/영상 소재를 만들고 테스트합니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>지표 연산과 ROAS 180% → 960% 레버리지</h3><p>CPM → CTR → CVR → AOV 각 구간을 개선해 같은 광고비(10만 원)로 매출을 5배 이상 키우는 최적화 공식을 훈련합니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>하향식 ‘지표 드릴다운’</h3><p>성과가 꺾였을 때 감으로 헤매지 않고 ‘객단가 vs 구매 건수’ → ‘CVR vs 클릭’ → ‘CTR vs 노출’ → ‘CPM vs 광고비’ 순서로 파고들어 해결책을 찾습니다.</p></div></li></ul></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">CURRICULUM</span><h2>4강 상세 커리큘럼</h2></header><div class="mods"><article class="mod"><div class="mno" aria-hidden="true">1</div><h3>퍼포먼스 마케팅의 개념 및 프로세스</h3><div class="mbody"><p>웹사이트, 페이스북, 구글Ads, 인스타그램, 네이버 등에서 채널을 운영하고, 홍보 데이터를 분석해 프로세스를 최적화하며, 반복적인 최적화로 최소의 비용으로 최대의 효율을 거두는 일입니다. (출처: 한국직업사전)</p><div class="vz"><h4>4단계 순환 사이클</h4><div class="flow"><div><small>STEP 1</small><b>전략 수립 (=기획)</b><span>가설 수립. 예: “매트리스 주 고객층은 4060대이고, 가장 중요하게 여기는 것은 허리의 편안함일 것이다”</span></div><div><small>STEP 2</small><b>광고 집행</b><span>Facebook / Instagram / Youtube, Google / GFA / BAND / KAKAO, Creative 제작</span></div><div><small>STEP 3</small><b>데이터 측정</b><span>CTR, CVR, AOV, ROAS, ROI 지표 수집</span></div><div><small>STEP 4</small><b>피드백</b><span>가설 검증과 NEXT 도출. 허리 편안함 소재의 클릭률이 낮았다면 4060대 구매 요인을 재분석</span></div></div></div><div class="vz"><h4>제품수명주기(PLC)와 집중 구간</h4><div class="flow"><div><b>Product Development</b><span>제품개발</span></div><div><b>Introduction</b><span>도입기 · 집중</span></div><div><b>Growth</b><span>성장기 · 집중</span></div><div><b>Maturity</b><span>성숙기</span></div><div><b>Decline</b><span>쇠퇴기</span></div></div></div><div class="vz"><h4>운영에 필요한 역량</h4><div class="chips"><span class="chip ">픽셀</span><span class="chip ">스크립트</span><span class="chip ">GA4</span><span class="chip ">광고 최적화</span><span class="chip ">타이트한 성과 관리</span><span class="chip ">IMC(통합 마케팅 커뮤니케이션)</span></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">2</div><h3>미디어 기초 및 광고 유형 (Funnel &amp; Media)</h3><div class="mbody"><div class="vz"><h4>마케팅 퍼널과 매체 맵핑</h4><div class="tw"><table><thead><tr><th>단계</th><th>매체</th></tr></thead><tbody><tr><td>인지</td><td>DA (배너광고 / 페이스북 / 인스타그램 / 유튜브)</td></tr><tr><td>유입 / 흥미</td><td>DA (배너광고 / 페이스북 / 인스타그램 / 유튜브)</td></tr><tr><td>비교 / 구매</td><td>DA (리타겟팅 / 카카오모먼트 / GFA / 크리테오), SA (네이버, 다음, 구글), BS (네이버, 다음)</td></tr><tr><td>평가 / 재구매</td><td>CRM</td></tr><tr><td>추천</td><td>CRM</td></tr></tbody></table></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">3</div><h3>광고 성과 지표 및 데이터 연산 공식</h3><div class="mbody"><div class="vz"><h4>기초 지표</h4><div class="chips"><span class="chip ">노출 Impression · 광고가 노출되는 횟수</span><span class="chip ">도달 Reach · 노출된 순 이용자 수</span><span class="chip ">클릭 Click · 노출된 광고를 클릭한 횟수</span><span class="chip ">빈도 Frequency · 노출수 / 도달수</span><span class="chip ">전환 Conversion · 구매, 장바구니, DB수집, 앱 다운로드</span></div></div><div class="vz"><h4>효율 지표 연산식</h4><div class="tw"><table><thead><tr><th>지표</th><th>의미</th><th>공식</th></tr></thead><tbody><tr><td>CPM</td><td>1,000회 노출당 비용</td><td>광고비 / 노출수 × 1,000</td></tr><tr><td>CPC</td><td>클릭당 비용</td><td>광고비 / 클릭수</td></tr><tr><td>CPA</td><td>전환당 비용</td><td>광고비 / 전환수</td></tr><tr><td>CTR</td><td>클릭률</td><td>클릭수 / 노출수 × 100%</td></tr><tr><td>CVR</td><td>전환율</td><td>전환수 / 클릭수 × 100%</td></tr><tr><td>AOV</td><td>객단가</td><td>총 매출액 / 총 구매건수</td></tr><tr><td>ROAS</td><td>광고 수익률</td><td>매출액 / 광고비 × 100%</td></tr></tbody></table></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">4</div><h3>지표 드릴다운(Drill-Down) 진단 프레임워크</h3><div class="mbody"><p>광고 성과나 매출이 정체될 때 감에 의존하지 않고, 실제 이커머스 케이스 스터디를 기반으로 핵심 지표의 인과관계를 역추적하여 성과의 원인을 진단하는 데이터 분석 프레임워크를 학습합니다.</p></div></article></div></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">DELIVERABLES</span><h2>4강 현장 산출물</h2><p>수강생에게 템플릿을 바로 지급합니다.</p></header><ul class="dl"><li><span class="lb">TEMPLATE</span><h4>메타 비즈니스 관리자 운영 전략 가이드</h4><p>캠페인 구조와 타깃팅을 세팅하는 운영 가이드</p></li><li><span class="lb">TEMPLATE</span><h4>실전 광고 소재 세트</h4><p>소재 유형별 3종</p></li><li><span class="lb">TEMPLATE</span><h4>핵심 지표 모니터링 &amp; 드릴다운 대시보드</h4><p>지표를 한눈에 보고 원인을 역추적하는 대시보드</p></li></ul></div></section><div class="take"><div class="in"><span class="tag">TAKEAWAY</span><h2>4강 수강 후 변화</h2><ul><li>내 제품의 타깃 여정에 딱 맞는 광고 퍼널을 설계하여 예산 낭비를 방지합니다.</li><li>광고 효율을 결정짓는 핵심 지표(CTR, CVR, ROAS)를 숫자로 읽고 해석하는 데이터 안목을 갖추게 됩니다.</li><li>실전 광고 지표의 핵심 개념을 명확히 이해하고, 실제 케이스 스터디를 통해 성과 데이터의 원인과 흐름을 스스로 파악하는 안목을 갖추게 됩니다.</li></ul></div></div><section class="chain"><div class="in"><div class="link"><span class="lb">STEP 4 → STEP 5 · 새 손님 유입 → 단골 재구매 자동화</span><p>🚀 <strong>새 손님들이 들어오기 시작했다면?</strong><br>👉 이제 5강에서 <strong>사간 손님이 단골이 되고 저절로 재구매하게 만드는 자동 알림톡을 세팅할 차례</strong>입니다.</p></div><div class="pn"><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;"><small>← 이전 강</small><b>3강. 매력 찾기 & 반응 검증</b></a><a class="next" href="#lecture5" onclick="showBootcampView('lecture5'); return false;"><small>마지막 강 보기 👉</small><b>5강. 단골 재구매 자동화 시스템</b></a></div></div></section><footer class="foot"><div class="in"><img class="lg" src="assets/embedded/png-03.png" alt="I’m Still 나는아직"><p class="msg">아직 끝나지 않았다, 지금부터 시작이다</p><p class="msg2">정체된 시간(Pause)을 도약의 모멘텀(Play)으로, 아이디어를 세상 밖 완제품(Box)으로.</p><div class="ops"><div><h4>진행 장소</h4><p>잠실 미팅룸 (결제 후 개별 안내)</p></div><div><h4>진행 방식</h4><p>주 1회 오프라인 집중 실습(Hands-on) + 주간 실무 과제</p></div><div><h4>정원</h4><p>개별 브랜드의 기획서와 시트를 밀착 디렉팅하기 위해 기수당 소수 정예 선발제로 운영</p></div><div><h4>준비물</h4><p>개인 노트북, 런칭하고 싶은 브랜드/제품 아이디어 (없어도 1강에서 도출)</p></div></div><nav aria-label="강의 바로가기"><a href="#index" onclick="showBootcampView('index'); return false;">전체 보기</a><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강 브랜드·제품 기획</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강 디자인·가격·자사몰</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강 소구점·PMF 검증</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강 퍼포먼스 마케팅</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강 CRM·재구매</a></nav></div></footer>
+  </div>
+  <div id="view-lecture5" class="bootcamp-view">
+    <header class="hero"><div class="in"><div class="topbar"><a href="#index" onclick="showBootcampView('index'); return false;" aria-label="나는아직 허브로"><img src="assets/embedded/png-01.png" alt="I’m Still 나는아직"></a><nav class="steps" aria-label="강의 이동"><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;" aria-current="page">5강</a></nav></div><div class="eyebrow">Week 5 · 5-Week Sprint</div><div class="hero-grid"><div class="bigno" aria-label="5강"><span>5</span><small>강</small></div><div class="motif" aria-hidden="true"><i></i><i></i><b></b></div></div><h1>한 번 산 손님이 다시 사게 만드는 자동화 시스템</h1><p class="lead">매번 비싼 광고비를 들여 새 손님을 찾지 마세요. 배송 완료 후 알림톡이 알아서 나가 단골이 되는 재구매 자동 시스템을 장착합니다.</p><div class="kq"><span>핵심 질문 & 해결</span><p><strong>“광고를 끄면 매출도 바로 0원이 되나요?”</strong><br><span style='color:var(--navy);font-size:15px;display:inline-block;margin-top:6px'>👉 사간 손님이 친구를 데려오고 다시 사게 만드는 카카오 알림톡 세팅과 첫날 리뷰 빌드업으로 고정 매출을 만듭니다.</span></p></div>
+    <div class="hero-cta-box">
+      <a href="https://litt.ly/im_still./sale/kfFnGxO" target="_blank" rel="noopener noreferrer" class="btn-buy-lecture">
+        <span>5강 수강권 신청하기</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+</div></header>
+
+<!-- 공감형 3단 현실의 벽 섹션 -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="pain-header">
+      <span class="pain-badge"><strong>첫 판매 후 사업을 키울 때</strong></span>
+      <h2 class="pain-title">겨우 몇 개 팔았는데 다음 단계에서 막막해지는 <span class='highlight-box'>생존의 벽</span></h2>
+    </div>
+    <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-13.jpg" alt="광고 중단 후 매출 0"></div>
+          <span class="pain-num">01</span>
+          <h3 class="pain-card-title">광고를 끄는 순간, 귀신같이 주문이 0건으로 뚝 떨어집니다.</h3>
+          <p class="pain-card-desc">광고비 쓸 때만 겨우 한두 개 팔리고, 광고를 끄면 쇼핑몰이 유령 마을이 됩니다. 매달 광고비에 끌려다니는 밑 빠진 독이 됩니다.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-14.jpg" alt="리뷰 부재와 고객 이탈"></div>
+          <span class="pain-num">02</span>
+          <h3 class="pain-card-title">사간 손님이 다시 안 오고, 리뷰 한 줄 써달라고 빌어야 합니다.</h3>
+          <p class="pain-card-desc">한 번 사고 끝나는 손님들이 대부분이고, 리뷰는 안 쌓이니 새로 들어온 손님도 의심하며 그냥 나가버리는 악순환이 반복됩니다.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-visual"><img src="assets/embedded/jpg-15.jpg" alt="장바구니 이탈과 CRM 재유입 타이밍 부재"></div>
+          <span class="pain-num">03</span>
+          <h3 class="pain-card-title">장바구니 담고 나간 손님, 언제 어떻게 다시 불러와야 할지 막막합니다.</h3>
+          <p class="pain-card-desc">장바구니에 담아두고 나간 고객이나 제품이 다 떨어져 가는 고객에게 딱 맞는 타이밍에 카톡을 보내야 하는데, 시기를 놓쳐 다 놓쳐버리고 무작정 전체 문자만 보냈다가 차단당하기 일쑤입니다.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<div class="in sum"><div class="sumcard"><header><b>5강 요약</b><span>SUMMARY</span></header><div class="sumgrid"><div><h4>핵심 전략</h4><ul><li>콘텐츠 → 상세 상단 → 쿠폰 → CRM으로 이어지는 <strong>무이탈 프로모션 4단 파이프라인</strong>을 설계합니다</li><li>리뷰 대량 빌드업 솔루션으로 론칭 첫날부터 신뢰도 높은 소셜 프루프를 갖춥니다</li><li>올인원 CRM 자동화 플랫폼으로 가입 → 첫구매 → 재구매 전 과정을 체계적으로 자동화합니다</li></ul></div><div><h4>현장 산출물</h4><p class="num">3<small>종 템플릿</small></p><p class="mute" style="font-size:14px;margin-top:8px">수강생에게 바로 지급합니다</p></div><div><h4>수강 후 변화</h4><ul><li>유입 고객이 쿠폰까지 이탈 없이 결제합니다</li><li>론칭 첫날부터 신뢰도 높은 자사몰 환경을 확보합니다</li><li>추가 광고비 없이 신규 고객이 재구매 단골로 이어집니다</li></ul></div></div></div></div><section class="s"><div class="in"><header class="sh"><span class="tag">STRATEGY</span><h2>단절 없는 프로모션 연결성과 자동화된 리텐션 엔진</h2></header><ul class="strat"><li><span class="mk" aria-hidden="true"></span><div><h3>프로모션 4단 연결 파이프라인</h3><p>광고나 SNS로 프로모션을 알려놓고도 상세페이지 상단이나 쿠폰 동선이 끊겨 고객을 놓치는 일을 막습니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>리뷰 대량 빌드업 &amp; 소셜 프루프 솔루션</h3><p>리뷰가 없는 신규 자사몰은 전환율이 바닥을 칩니다. 사전 체험단과 서포터즈의 포토/동영상 리뷰를 한 번에 대량 연동하여 론칭 첫날부터 강력한 소셜 프루프를 구축합니다.</p></div></li><li><span class="mk" aria-hidden="true"></span><div><h3>올인원 CRM 자동화 플랫폼 &amp; 대량 고객 세그먼트</h3><p>고객 행동 데이터를 기반으로 ‘가입 → 첫구매 → 재구매 주기 안정화 → 충성 고객화’까지 체계적인 대량 자동화 시나리오를 완성합니다.</p></div></li></ul><div class="vz"><h4>무이탈 전환 구조</h4><div class="flow hi"><div><small>STEP 1</small><b>콘텐츠</b><span>3~4강에서 검증된 앵글과 시의성(명분 × TPO)을 담은 광고/SNS 콘텐츠 배포</span></div><div><small>STEP 2</small><b>상세페이지 상단</b><span>외부 콘텐츠와 같은 프로모션 배너·헤드라인을 최상단에 일치시켜 신뢰 유지</span></div><div><small>STEP 3</small><b>전용 쿠폰/옵션</b><span>첫구매·번들 쿠폰을 헤매지 않고 즉시 적용하도록 동선 최적화</span></div><div><small>STEP 4</small><b>온/오프사이트 CRM</b><span>장바구니 이탈 시 친구톡, 구매 완료 시 감사 메시지와 재구매 유도 알림톡 자동 발송</span></div></div></div></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">CURRICULUM</span><h2>5강 상세 커리큘럼</h2></header><div class="mods"><article class="mod"><div class="mno" aria-hidden="true">1</div><h3>프로모션 기초 및 성공 공식</h3><div class="mbody"><div class="quote">프로모션 ≠ 할인<small>할인은 판매량과 매출을 올리는 여러 프로모션 활동 중 하나일 뿐입니다. 프로모션은 특정 지표를 촉진하는 마케팅 활동 전체를 가리킵니다.</small></div><div class="vz"><h4>프로모션을 하는 이유</h4><div class="two"><div class="box"><h4>매출 증대</h4><p>매출이 크게 오르는 시즌의 반등을 활용해 연간 총매출을 높입니다</p></div><div class="box"><h4>재고의 소진</h4><p>부진 재고를 빠르게 현금화해 주력 제품의 세일즈 부스팅에 씁니다</p></div><div class="box"><h4>회원 가입 / CRM 모수 획득</h4><p>중요한 이슈 전에 구매 직전의 가입·알림신청 모수를 모아둡니다</p></div><div class="box"><h4>장바구니 / 트래픽 증진</h4><p>브랜드의 주요 이슈를 알리기 위해 트래픽을 높입니다</p></div></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">2</div><h3>CRM의 개념 및 커머스 성장 단계별 전략</h3><div class="mbody"><p>CRM(Customer Relationship Management)은 고객 및 잠재 고객과의 모든 관계와 상호작용을 관리하는 기술이며, 목표는 비즈니스 관계를 개선해 비즈니스를 성장시키는 것입니다.</p><div class="vz"><h4>수익 달성 순차 액션 플랜</h4><div class="flow hi"><div><b>유입</b></div><div><b>첫구매</b><span>가입, 첫구매, 객단가</span></div><div><b>재구매</b><span>재구매 주기 안정화, 객단가</span></div><div><b>충성 고객</b><span>정기적이고 안정적인 N회 이상 재구매</span></div></div></div></div></article><article class="mod"><div class="mno" aria-hidden="true">3</div><h3>오프사이트 CRM 매체 비교 (카카오톡 중심)</h3><div class="mbody"><div class="vz"><h4>카카오 메시지 3종</h4><div class="tw"><table><thead><tr><th>구분</th><th>핵심 장점 및 특징</th></tr></thead><tbody><tr><td>카카오 푸시</td><td>카카오 모먼트에서 성과·광고비 통합 관리, 데모/지역/연령/픽셀/연락처 기반 타깃팅, 간헐적 캐시 지원</td></tr><tr><td>카카오 친구톡</td><td>푸시에 없는 세그먼트 타깃팅 (장바구니 이탈 고객, 가입 후 N일 경과 미구매 고객)</td></tr><tr><td>카카오 알림톡</td><td>건당 비용이 문자보다 저렴, 카카오톡 유저 전원에게 도달</td></tr></tbody></table></div></div><p>활용 사례: 쿠폰 만료 임박 안내, 블랙프라이데이 쿠폰 안내, 배송 완료 후 리뷰 작성 유도 알림톡</p></div></article><article class="mod"><div class="mno" aria-hidden="true">4</div><h3>이커머스 전문 올인원 CRM 자동화 플랫폼 &amp; 대량 고객 세그먼트</h3><div class="mbody"><div class="box k"><h4>올인원 CRM 플랫폼 핵심 기능</h4><ul class="pro"><li>매체별 타깃 세그먼트에 따른 대량 자동화 CRM 및 검증된 시나리오 템플릿</li><li>고객 행동 데이터 기반 실시간 사이트 분석 및 타깃팅 어시스트</li><li>퍼널별 이탈률 분석 및 동종 업계 대비 성과 순위 조회</li><li>상품 단위 전환율·이탈률 리포트</li><li>코호트 지표와 첫구매·재구매 주기별 데이터 리포트</li></ul></div></div></article><article class="mod"><div class="mno" aria-hidden="true">5</div><h3>리뷰 대량 빌드업 &amp; 소셜 프루프 일괄 구축 솔루션</h3><div class="mbody"><ul class="bl"><li>사전 체험단 및 서포터즈 리뷰 데이터를 대량 등록 플랫폼을 통해 일괄 연동합니다</li><li>포토/동영상 리뷰 수집 위젯을 최적화하고 베스트 리뷰 리워드 정책을 연동합니다</li></ul></div></article></div></div></section><section class="s"><div class="in"><header class="sh"><span class="tag">DELIVERABLES</span><h2>5강 현장 산출물</h2><p>수강생에게 템플릿을 바로 지급합니다.</p></header><ul class="dl"><li><span class="lb">TEMPLATE</span><h4>CRM 자동화 시나리오 기획서</h4><p>온/오프사이트 6대 트리거</p></li><li><span class="lb">TEMPLATE</span><h4>런칭 프로모션 캘린더</h4><p>명분 × TPO × 혜택을 연계한 캘린더</p></li><li><span class="lb">TEMPLATE</span><h4>대량 리뷰 빌드업 &amp; CRM 자동화 연동 완료 자사몰</h4><p>론칭 첫날부터 쓸 수 있는 연동 상태</p></li></ul></div></section><div class="take"><div class="in"><span class="tag">TAKEAWAY</span><h2>5강 수강 후 변화</h2><ul><li>유입된 고객이 [콘텐츠 → 상세 상단 → 쿠폰]으로 이어지는 매끄러운 동선 안에서 이탈 없이 결제하게 됩니다.</li><li>대량 리뷰 빌드업을 통해 런칭 첫날부터 빈틈없는 소셜 프루프와 신뢰 자산을 즉시 확보합니다.</li><li>올인원 CRM 자동화 플랫폼을 통해 추가 광고비 없이도 신규 고객이 재구매 단골로 전환되는 지속 가능한 비즈니스 생태계를 완성합니다.</li></ul></div></div><section class="chain"><div class="in"><div class="link"><span class="lb">STEP 5 · 완결: 지속 가능한 내 브랜드 완성</span><p>🎉 <strong>축하합니다! 5주 만에 내 완제품과 판매 시스템이 모두 완성되었습니다.</strong><br>👉 기획부터 쇼핑몰, 광고, 재구매까지 전 과정을 한눈에 복습해 보세요.</p></div><div class="pn"><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;"><small>← 이전 강</small><b>4강. 실전 마케팅 실습</b></a><a class="next" href="#index" onclick="showBootcampView('index'); return false;"><small>완강 축하 🎉</small><b>5주 부트캠프 로드맵 다시 보기</b></a></div></div></section><footer class="foot"><div class="in"><img class="lg" src="assets/embedded/png-03.png" alt="I’m Still 나는아직"><p class="msg">아직 끝나지 않았다, 지금부터 시작이다</p><p class="msg2">정체된 시간(Pause)을 도약의 모멘텀(Play)으로, 아이디어를 세상 밖 완제품(Box)으로.</p><div class="ops"><div><h4>진행 장소</h4><p>잠실 미팅룸 (결제 후 개별 안내)</p></div><div><h4>진행 방식</h4><p>주 1회 오프라인 집중 실습(Hands-on) + 주간 실무 과제</p></div><div><h4>정원</h4><p>개별 브랜드의 기획서와 시트를 밀착 디렉팅하기 위해 기수당 소수 정예 선발제로 운영</p></div><div><h4>준비물</h4><p>개인 노트북, 런칭하고 싶은 브랜드/제품 아이디어 (없어도 1강에서 도출)</p></div></div><nav aria-label="강의 바로가기"><a href="#index" onclick="showBootcampView('index'); return false;">전체 보기</a><a href="#lecture1" onclick="showBootcampView('lecture1'); return false;">1강 브랜드·제품 기획</a><a href="#lecture2" onclick="showBootcampView('lecture2'); return false;">2강 디자인·가격·자사몰</a><a href="#lecture3" onclick="showBootcampView('lecture3'); return false;">3강 소구점·PMF 검증</a><a href="#lecture4" onclick="showBootcampView('lecture4'); return false;">4강 퍼포먼스 마케팅</a><a href="#lecture5" onclick="showBootcampView('lecture5'); return false;">5강 CRM·재구매</a></nav></div></footer>
+  </div>
+
+  <!-- 식스샵 고정 하단 배너 가림 방지 공란(Spacer) -->
+  <!-- sixshop-bottom-spacer removed -->
+
+  <!-- 우측 하단 카카오톡 1:1 상담 플로팅 버튼 -->
+  <!-- 하단 스크롤 감지 플로팅 환불 규정 바 -->
+<div id="refund-floating-bar" class="refund-floating-bar" aria-label="취소 및 환불 안내">
+  <div class="rf-inner">
+    <div class="rf-content">
+      <span class="rf-tag">NOTICE</span>
+      <span class="rf-text">⚠️ 당일 취소·노쇼 시 환불/변경 불가  💬 사전 문의 필수</span>
+    </div>
+    <a href="https://pf.kakao.com/_JjeKX/chat" target="_blank" rel="noopener noreferrer" class="rf-btn">
+      <span>카톡 문의하기</span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+  <a href="https://pf.kakao.com/_JjeKX/chat" target="_blank" rel="noopener noreferrer" class="kakao-floating-btn" aria-label="카카오톡 1:1 상담 문의">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#181600" aria-hidden="true">
+      <path d="M12 3C6.477 3 2 6.477 2 10.765c0 2.766 1.87 5.19 4.697 6.545l-.956 3.52c-.104.383.332.684.65.467l4.316-2.92c.414.053.839.081 1.293.081 5.523 0 10-3.477 10-7.765C22 6.477 17.523 3 12 3z"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+(function() {
+  window.currentBootcampView = 'index';
+
+  function updateFloatingRefundBar() {
+    var bar = document.getElementById('refund-floating-bar');
+    if (!bar) return;
+    var cur = window.currentBootcampView || 'index';
+    var isLecture = (cur.indexOf('lecture') !== -1);
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+    if (isLecture && scrollY > 250) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', updateFloatingRefundBar, { passive: true });
+  window.addEventListener('resize', updateFloatingRefundBar, { passive: true });
+
+  window.showBootcampView = function(viewId) {
+    window.currentBootcampView = viewId;
+    setTimeout(updateFloatingRefundBar, 100);
+    var views = document.querySelectorAll('.bootcamp-view');
+    for (var i = 0; i < views.length; i++) {
+      views[i].classList.remove('active');
+    }
+    var target = document.getElementById('view-' + viewId);
+    if (target) {
+      target.classList.add('active');
+    }
+
+    var navItems = document.querySelectorAll('.bootcamp-nav-item');
+    for (var j = 0; j < navItems.length; j++) {
+      if (navItems[j].getAttribute('data-target') === viewId) {
+        navItems[j].classList.add('active');
+        if (navItems[j].scrollIntoView) {
+          navItems[j].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      } else {
+        navItems[j].classList.remove('active');
+      }
+    }
+
+    var container = document.getElementById('bootcamp-app-root');
+    if (container) {
+      var rect = container.getBoundingClientRect();
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var targetY = rect.top + scrollTop - 10;
+      window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+    }
+  };
+
+  window.addEventListener('hashchange', function() {
+    var hash = window.location.hash.replace('#', '');
+    if (['index', 'lecture1', 'lecture2', 'lecture3', 'lecture4', 'lecture5'].indexOf(hash) !== -1) {
+      window.showBootcampView(hash);
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var hash = window.location.hash.replace('#', '');
+    if (['index', 'lecture1', 'lecture2', 'lecture3', 'lecture4', 'lecture5'].indexOf(hash) !== -1) {
+      window.showBootcampView(hash);
+    }
+  });
+})();
+</script>
+</body>
+</html>
